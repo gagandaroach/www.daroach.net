@@ -4,7 +4,8 @@
 			"path": ".."
 		},
 		{
-			"path": "..\\..\\daroachnet\\daroach.net"
+			"path": "../../daroachnet/daroach.net"
+			// "path": "..\\..\\daroachnet\\daroach.net"
 		}
 	],
 	"settings": {

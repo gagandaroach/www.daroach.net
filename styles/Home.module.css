@@ -1,18 +1,32 @@
 .main {
-  align-items: center;
-  @apply flex flex-col justify-start p-10 h-full min-h-screen m-auto;
+  @apply container flex flex-col justify-start flex-grow-0;
+  @apply m-auto;
+  @apply p-4;
+  @apply min-h-screen h-full;
+}
+
+.banner {
+  @apply pt-20 space-y-5 text-center;
+}
+
+.content {
+  @apply flex flex-col justify-start flex-grow;
+}
+
+.sec {
+  @apply border-t my-5;
+}
+
+.secHeader {
+  @apply text-base;
 }
 
 .footer {
-  @apply flex flex-col border-t justify-center text-center py-5 mx-5;
+  @apply flex flex-col border-t justify-center text-center py-1 mx-5;
 }
 
 .footer a {
   @apply flex flex-row flex-grow;
-}
-
-.banner {
-  @apply py-20 space-y-3;
 }
 
 .banner h1 {
