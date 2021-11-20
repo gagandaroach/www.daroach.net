@@ -37,6 +37,14 @@ export default function Home() {
             <h1 className={styles.secHeader}>Web services</h1>
           </div>
 
+          <div className={styles.sec}>
+            <h1 className={styles.secHeader}>Debug</h1>
+            <div className="flex text-center space-x-2">
+              <a href="/api" className="bg-gray-200 p-5 hover:bg-green-500">Link to api</a>
+              <a href="/api/hits" className="bg-gray-200 p-5 hover:bg-green-500">Link to api/hits</a>
+            </div>
+          </div>
+
         </div>
 
         <footer className={styles.footer}>
