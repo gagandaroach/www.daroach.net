@@ -1,11 +1,26 @@
 import mongoose from 'mongoose'
 
 const HitSchema = new mongoose.Schema({
-    address: {
+    host: {
         type: String,
         required: true
     },
-    route: {
+    port: {
+        type: String,
+    },
+    path: {
+        type: String,
+    },
+    params: {
+        type: String
+    },
+    method: {
+        type: String,
+    },
+    userAgent: {
+        type: String,
+    },
+    protocol: {
         type: String,
     },
     date: {
@@ -14,4 +29,4 @@ const HitSchema = new mongoose.Schema({
     }
 })
 
-export default mongoose.models.Hit || mongoose.model('Hits', HitSchema);
+export default mongoose.models.Hit || mongoose.model('Hit', HitSchema);
