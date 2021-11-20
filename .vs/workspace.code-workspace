@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\daroachnet"
+		}
+	],
+	"settings": {
+		"css.lint.unknownAtRules": "ignore"
+	}
+}
