@@ -1,8 +1,7 @@
 .main {
-  @apply container flex flex-col justify-start flex-grow-0;
+  @apply flex flex-col justify-start min-h-screen;
   @apply m-auto;
   @apply p-4;
-  @apply min-h-screen h-full;
 }
 
 .banner {
@@ -22,11 +21,16 @@
 }
 
 .footer {
-  @apply flex flex-col border-t justify-center text-center py-1 mx-5;
+  @apply flex flex-col border-t;
+  @apply space-y-1;
+  @apply pt-4;
+  @apply text-sm text-center;
+  @apply select-none;
 }
 
 .footer a {
-  @apply flex flex-row flex-grow;
+  @apply text-sm;
+  @apply hover:underline;
 }
 
 .banner h1 {

@@ -32,22 +32,21 @@ export default function Home() {
           <div className={styles.sec}>
             <h1 className={styles.secHeader}>About me</h1>
           </div>
+
+          <div className={styles.sec}>
+            <h1 className={styles.secHeader}>Web services</h1>
+          </div>
+
         </div>
 
+        <footer className={styles.footer}>
+          {/* <span>www.daroach.net - running on a high performance webserver in my apartment</span> */}
+          <span>Gagan Daroach &copy; 2019-2021</span>
+          <span><a href="https://github.com/gagandaroach/daroachnet" target="_blank">Source Code</a></span>
+          <span><a href="mailto:gagandaroach@gmail.com?Subject=www.daroach.net contact me&Body=Hello Gagan, I like daroach.net!" target="_blank">Contact Me</a></span>
+        </footer>
       </main>
 
-      <footer className={styles.footer}>
-        {/* <span>www.daroach.net - running on a high performance webserver in my apartment</span> */}
-        <div className="flex justify-center py-5 mx-5">
-          <div class="flex flex-col ml-1 mr-auto">
-            <span><a href="https://github.com/gagandaroach/daroachnet" target="_blank">Source Code</a></span>
-          </div>
-          <div className="flex flex-col mr-1 ml-auto">
-            <a href="mailto:gagandaroach@gmail.com?Subject=Hello Gagan, I like daroach.net!" target="_blank">
-              <span>Gagan Daroach &copy; 2019-2021</span></a>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
