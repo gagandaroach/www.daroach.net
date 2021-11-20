@@ -1,29 +1,24 @@
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  @apply flex flex-col justify-start p-10 h-full min-h-screen m-auto;
 }
 
 .footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+  @apply flex flex-col border-t justify-center text-center py-5 mx-5;
 }
 
 .footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+  @apply flex flex-row flex-grow;
 }
 
-.title {
-  @apply text-5xl text-pink-800;
+.banner {
+  @apply py-20 space-y-3;
+}
+
+.banner h1 {
+  @apply text-6xl;
+}
+
+.banner h2 a {
+  @apply underline;
 }
