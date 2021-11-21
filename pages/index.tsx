@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -40,8 +41,12 @@ export default function Home() {
           <div className={styles.sec}>
             <h1 className={styles.secHeader}>Debug</h1>
             <div className="flex text-center space-x-2">
-              <a href="/api" className="bg-gray-200 p-5 hover:bg-green-500">Link to api</a>
-              <a href="/api/hits" className="bg-gray-200 p-5 hover:bg-green-500">Link to api/hits</a>
+              <div className="bg-gray-200 p-5 hover:bg-green-500">
+                <Link href="/api" >Link to api</Link>
+              </div>
+              <div className="bg-gray-200 p-5 hover:bg-green-500">
+                <Link href="/api/hits" >Link to api/hits</Link>
+              </div>
             </div>
           </div>
 
@@ -50,8 +55,8 @@ export default function Home() {
         <footer className={styles.footer}>
           {/* <span>www.daroach.net - running on a high performance webserver in my apartment</span> */}
           <span>Gagan Daroach &copy; 2019-2021</span>
-          <span><a href="https://github.com/gagandaroach/daroachnet" target="_blank">Source Code</a></span>
-          <span><a href="mailto:gagandaroach@gmail.com?Subject=www.daroach.net contact me&Body=Hello Gagan, I like daroach.net!" target="_blank">Contact Me</a></span>
+          <span><a href="https://github.com/gagandaroach/daroachnet" rel="noreferrer" target="_blank">Source Code</a></span>
+          <span><a href="mailto:gagandaroach@gmail.com?Subject=www.daroach.net contact me&Body=Hello Gagan, I like daroach.net!" rel="noreferrer" target="_blank">Contact Me</a></span>
         </footer>
       </main>
 

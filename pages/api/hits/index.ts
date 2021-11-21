@@ -1,7 +1,9 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
+
 import dbConnect from '../../../lib/dbConnect'
 import Hit from '../../../models/Hit'
 
-export default async function handler(req, res) {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { url, headers, method } = req
 
   await dbConnect()
@@ -17,6 +19,10 @@ export default async function handler(req, res) {
       break
     case 'POST':
       try {
+        if (url === undefined) {
+          console.log("incoming url was undefined. req headers: " + req.rawHeaders.toString());
+          break;
+        }
         const req_url = new URL(url, `http://${headers.host}`);
         // console.log(req_url)
         const hit = await Hit.create({
@@ -24,7 +30,7 @@ export default async function handler(req, res) {
           port: req_url.port,
           path: req_url.pathname,
           params: req_url.search,
-          method: req_url.method,
+          method: method,
           protocol: req_url.protocol,
           userAgent: req.headers["user-agent"] || "",
         }) /* create a new model in the database */
@@ -39,3 +45,5 @@ export default async function handler(req, res) {
       break
   }
 }
+
+export default handler
