@@ -1,0 +1,20 @@
+/*! purgecss start ignore */
+.main {
+  @apply flex flex-col justify-start min-h-screen;
+  @apply m-auto;
+  @apply p-4;
+}
+
+.footer {
+  @apply flex flex-col border-t;
+  @apply space-y-1;
+  @apply pt-4;
+  @apply text-sm text-center;
+  @apply select-none;
+}
+
+.footer a {
+  @apply text-sm;
+  @apply hover:underline;
+}
+/*! purgecss end ignore */
