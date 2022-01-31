@@ -2,13 +2,31 @@
 .main {
   @apply flex flex-col justify-start min-h-screen;
   @apply m-auto;
-  @apply p-4;
+  @apply px-4;
+}
+
+.navbar {
+  @apply container flex flex-row px-4 mx-auto;
+  @apply border-b py-4;
+  @apply text-sm;
+}
+
+.navleft {
+  @apply mr-auto;
+}
+
+.navright {
+  @apply ml-auto space-x-2;
+}
+
+.navbar a {
+  @apply hover:underline;
 }
 
 .footer {
   @apply flex flex-col border-t;
   @apply space-y-1;
-  @apply pt-4;
+  @apply py-4;
   @apply text-sm text-center;
   @apply select-none;
 }

@@ -19,21 +19,35 @@ const Layout = ({ children, title = 'www.daroach.net' }: Props) => (
       <meta charSet="utf-8" />
     </Head>
     <header>
-      <nav>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-        {' | '}
-        <Link href="/about">
-          <a>About</a>
-        </Link>
+      <nav className={styles.navbar}>
+        <div className={styles.navleft}>
+          <Link href="/" >www.daroach.net</Link>
+          {/* <h1>{title.split('|')[0]}</h1> */}
+        </div>
+        <div className={styles.navright}>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+          <text>|</text>
+          <Link href="/blog">
+            <a>Blog</a>
+          </Link>
+          <text>|</text>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
+          <text>|</text>
+          <Link href="/contact">
+            <a>Contact</a>
+          </Link>
+        </div>
       </nav>
     </header>
     {children}
     <footer className={styles.footer}>
       {/* <span>www.daroach.net - running on a high performance webserver in my apartment</span> */}
       <span>Gagan Daroach &copy; 2019-2021</span>
-      <span><a href="https://github.com/gagandaroach/daroachnet" rel="noreferrer" target="_blank">Source Code</a></span>
+      <span><a href="https://github.com/gagandaroach/daroachnet" rel="noreferrer" target="_blank">Website Source Code</a></span>
       <span><a href="mailto:gagandaroach@gmail.com?Subject=www.daroach.net contact me&Body=Hello Gagan, I like daroach.net!" rel="noreferrer" target="_blank">Contact Me</a></span>
     </footer>
   </div>
