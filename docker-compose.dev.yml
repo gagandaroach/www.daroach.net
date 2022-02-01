@@ -8,7 +8,6 @@ services:
     restart: 'no'
     ports: 
       - '3000:3000'
-    user: '1085200003:1085200003'
     volumes:
       - ./components:/dnet/components
       - ./lib:/dnet/lib

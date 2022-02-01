@@ -10,13 +10,12 @@ const HomePage = () => (
   <Layout title="Home | www.daroach.net">
     <div className={styles.banner}>
       <h1 className={styles.title}>Welcome to <a href="">Daroach.net!</a></h1>
-      <h2>You have used the power of the internet to connect to a <a
-        href="https://www.instagram.com/p/BtSgNa8ni0i/?utm_source=ig_web_options_share_sheet"
-        target="_blank" rel="noopener noreferrer">webserver</a> running in my apartment.
+      <h2>
+        You have used the power of the internet to connect to a webserver running in my apartment. Nice.
       </h2>
+      <DnetImage src="/outside_tree_home.jpg" footer="Photo of Gagan Daroach taken by Gian Daroach, outside childhood home in Peshtigo, WI, USA." width={2048} height={1536} />
     </div>
 
-    <DnetImage src="/outside_tree_home.jpg" footer="Photo of Gagan Daroach taken by Gian Daroach" width="2048" height="1536"/>
 
     <div className={styles.content}>
       <div className={styles.sec}>
