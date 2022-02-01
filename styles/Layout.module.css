@@ -1,8 +1,8 @@
 /*! purgecss start ignore */
 .main {
-  @apply flex flex-col justify-start min-h-screen;
+  @apply container flex flex-col justify-start min-h-screen;
   @apply m-auto;
-  @apply px-4;
+  @apply px-1;
 }
 
 .navbar {

@@ -1,0 +1,7 @@
+/*! purgecss start ignore */
+.body {
+  @apply max-w-7xl mx-auto;
+  @apply p-2 bg-gray-200;
+  @apply text-black text-right text-sm;
+}
+/*! purgecss end ignore */

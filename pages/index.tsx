@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Layout from '../components/Layout'
+import DnetImage from '../components/DnetImage'
 
 
 const HomePage = () => (
@@ -15,6 +16,8 @@ const HomePage = () => (
       </h2>
     </div>
 
+    <DnetImage src="/outside_tree_home.jpg" footer="Photo of Gagan Daroach taken by Gian Daroach" width="2048" height="1536"/>
+
     <div className={styles.content}>
       <div className={styles.sec}>
         <h1 className={styles.secHeader}>Web traffic</h1>
@@ -26,6 +29,7 @@ const HomePage = () => (
 
       <div className={styles.sec}>
         <h1 className={styles.secHeader}>About me</h1>
+        <p>I am a human being from the Planet Earth, born at the turn of the millenium - 1995.</p>
       </div>
 
       <div className={styles.sec}>
