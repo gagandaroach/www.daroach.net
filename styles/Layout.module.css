@@ -6,7 +6,7 @@
 }
 
 .navbar {
-  @apply container flex flex-row px-4 mx-auto;
+  @apply flex flex-row px-4 mx-auto;
   @apply border-b py-4;
   @apply text-sm;
 }
@@ -29,6 +29,7 @@
   @apply py-4;
   @apply text-sm text-center;
   @apply select-none;
+  @apply mt-auto mb-0;
 }
 
 .footer a {
