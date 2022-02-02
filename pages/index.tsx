@@ -27,7 +27,7 @@ const HomePage = () => (
     </div> */}
 
       <div className={styles.sec}>
-        <h1 className={styles.secHeader}>About me</h1>
+        <h1 className={styles.secHeader}>About</h1>
         <p>I am a human being from the Planet Earth, born at the turn of the millenium - 1995.</p>
       </div>
 
