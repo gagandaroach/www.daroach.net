@@ -1,19 +1,13 @@
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Page.module.css'
 import Layout from '../components/Layout'
-import DnetImage from '../components/DnetImage'
+import DnetBanner from '../components/DnetBanner'
 
 
 const HomePage = () => (
   <Layout title="Home | www.daroach.net">
-    <div className={styles.banner}>
-      <h1 className={styles.title}>Welcome to <a href="">Daroach.net!</a></h1>
-      <h2>
-        You have used the power of the internet to connect to a webserver running in my apartment. Nice.
-      </h2>
-      <DnetImage src="/outside_tree_home.jpg" footer="Photo of Gagan Daroach taken by Gian Daroach, outside childhood home in Peshtigo, WI, USA." width={2048} height={1536} />
-    </div>
-
+    
+    <DnetBanner />
 
     <div className={styles.content}>
       <div className={styles.sec}>

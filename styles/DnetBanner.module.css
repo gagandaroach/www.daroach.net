@@ -1,0 +1,13 @@
+/*! purgecss start ignore */
+.banner {
+  @apply py-4 space-y-5 text-center;
+}
+
+.banner h1 {
+  @apply text-6xl;
+}
+
+.banner h2 a {
+  @apply underline;
+}
+/*! purgecss end ignore */

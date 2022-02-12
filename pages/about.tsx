@@ -1,15 +1,16 @@
 import Link from 'next/link'
 import Layout from '../components/Layout'
+import DnetImage from '../components/DnetImage'
+import DnetBanner from '../components/DnetBanner'
+import styles from '../styles/Page.module.css'
 
 const AboutPage = () => (
   <Layout title="About | www.daroach.net">
-    <h1>About</h1>
-    <p>This is the about page</p>
-    <p>
-      <Link href="/">
-        <a>Go home</a>
-      </Link>
-    </p>
+    <DnetBanner 
+      lead="About"
+      main=""
+    />
+    <DnetImage src="/outside_tree_home.jpg" footer="Photo of Gagan Daroach taken by Gian Daroach, outside childhood home in Peshtigo, WI, USA." width={2048} height={1536} />
   </Layout>
 )
 
