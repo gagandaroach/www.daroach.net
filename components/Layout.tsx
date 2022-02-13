@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
+import DnetNavbar from './DnetNavbar'
 import styles from '../styles/Layout.module.css'
-
 
 type Props = {
   children?: ReactNode
@@ -19,29 +19,7 @@ const Layout = ({ children, title = 'www.daroach.net' }: Props) => (
       <meta charSet="utf-8" />
     </Head>
     <header>
-      <nav className={styles.navbar}>
-        <div className={styles.navleft}>
-          <Link href="/" >www.daroach.net</Link>
-          {/* <h1>{title.split('|')[0]}</h1> */}
-        </div>
-        <div className={styles.navright}>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
-          <text>|</text>
-          <Link href="/blog">
-            <a>Blog</a>
-          </Link>
-          <text>|</text>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
-          <text>|</text>
-          <Link href="/contact">
-            <a>Contact</a>
-          </Link>
-        </div>
-      </nav>
+      <DnetNavbar title={title} />
     </header>
     {children}
     <footer className={styles.footer}>

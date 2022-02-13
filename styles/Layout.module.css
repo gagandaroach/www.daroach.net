@@ -5,24 +5,6 @@
   @apply px-1;
 }
 
-.navbar {
-  @apply flex flex-row px-4 mx-auto;
-  @apply border-b py-4;
-  @apply text-sm;
-}
-
-.navleft {
-  @apply mr-auto;
-}
-
-.navright {
-  @apply ml-auto space-x-2;
-}
-
-.navbar a {
-  @apply hover:underline;
-}
-
 .footer {
   @apply flex flex-col border-t;
   @apply space-y-1;
