@@ -22,3 +22,4 @@ services:
       - ./package.json:/dnet/package.json
       - ./postcss.config.js:/dnet/postcss.config.js
       - ./tsconfig.json:/dnet/tsconfig.json
+      - ./.env:/dnet/.env
