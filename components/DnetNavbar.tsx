@@ -2,35 +2,46 @@ import React from 'react'
 import Link from 'next/link'
 import styles from '../styles/DnetNavbar.module.css'
 
-type Props = { title: string } & typeof defaultProps;
+type LinkData = { name: string, href: string }
+type Props = { title: string, links: Array<LinkData> } & typeof defaultProps;
 
 const defaultProps = {
-  title: ""
+  title: "www.daroach.net",
+  links: [
+    {
+      name: "Home",
+      href: "/"
+    },
+    {
+      name: "Blog",
+      href: "/blog"
+    },
+    {
+      name: "About",
+      href: "/about"
+    },
+    {
+      name: "Contact",
+      href: "/contact"
+    }
+  ]
 }
 
-const DnetNavbar = ({ title }: Props) => (
+const DnetNavbar = ({ title, links }: Props) => (
   <nav className={styles.navbar}>
     <div className={styles.navleft}>
       {/* <Link href="/" >www.daroach.net</Link> */}
-      <Link href="/" >{title}</Link>
       {/* <h1>{title.split('|')[0]}</h1> */}
+      <Link href="/" >www.daroach.net</Link>
     </div>
     <div className={styles.navright}>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
-      <text>|</text>
-      <Link href="/blog">
-        <a>Blog</a>
-      </Link>
-      <text>|</text>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-      <text>|</text>
-      <Link href="/contact">
-        <a>Contact</a>
-      </Link>
+      {
+        links.map((linkData, idx) => (
+          <Link href={linkData.href} key={idx}>
+            <a>{linkData.name}</a>
+          </Link>          
+        ))
+      }
     </div>
   </nav>
 )

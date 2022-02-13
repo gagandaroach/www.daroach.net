@@ -10,10 +10,13 @@
 }
 
 .navright {
-  @apply ml-auto space-x-2;
+  @apply ml-auto;
+  @apply divide-x;
+  @apply divide-gray-500;
 }
 
 .navbar a {
   @apply hover:underline;
+  @apply px-2;
 }
 /*! purgecss end ignore */
