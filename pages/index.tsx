@@ -14,6 +14,9 @@ const HomePage = () => (
       <div className={styles.sec}>
         <h1 className={styles.secHeader}>Web traffic</h1>
         {/* < ExampleChart /> */}
+        {/* chart - active / online now */}
+        {/* chart - visitors per time period - daily, monthly, yearly, YTD */}
+        {/* chart - visitors per page  */}
       </div>
 
       {/* <div className={styles.sec}>
