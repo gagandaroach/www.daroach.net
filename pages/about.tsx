@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Layout from '../components/Layout'
-import DnetImage from '../components/DnetImage'
-import DnetBanner from '../components/DnetBanner'
+import DnetImage from '../components/elements/Image'
+import DnetBanner from '../components/elements/Banner'
 import styles from '../styles/Page.module.css'
 
 const AboutPage = () => (

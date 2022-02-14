@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import styles from '../styles/DnetNavbar.module.css'
+import styles from '../../styles/elements/Navbar.module.css'
 
 type LinkData = { name: string, href: string }
 type Props = { title: string, links: Array<LinkData> } & typeof defaultProps;

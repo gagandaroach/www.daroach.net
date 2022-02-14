@@ -1,17 +1,19 @@
 import Link from 'next/link'
 import styles from '../styles/Page.module.css'
 import Layout from '../components/Layout'
-import DnetBanner from '../components/DnetBanner'
+import DnetBanner from '../components/elements/Banner'
+import ExampleChart from '../components/charts/ExampleChart'
 
 
 const HomePage = () => (
   <Layout title="Home | www.daroach.net">
-    
+
     <DnetBanner />
 
     <div className={styles.content}>
       <div className={styles.sec}>
         <h1 className={styles.secHeader}>Web traffic</h1>
+        {/* < ExampleChart /> */}
       </div>
 
       {/* <div className={styles.sec}>

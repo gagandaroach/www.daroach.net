@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/DnetBanner.module.css'
+import styles from '../../styles/elements/Banner.module.css'
 
 type Props = {
   lead: string,

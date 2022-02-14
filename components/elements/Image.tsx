@@ -2,7 +2,8 @@ import React, { ReactNode } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/DnetImage.module.css'
+import styles from '../../styles/elements/Image.module.css'
+
 
 type Props = {
   src: string,

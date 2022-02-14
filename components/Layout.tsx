@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
-import DnetNavbar from './DnetNavbar'
+import DnetNavbar from './elements/Navbar'
 import styles from '../styles/Layout.module.css'
 
 type Props = {
