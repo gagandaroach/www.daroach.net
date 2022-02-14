@@ -2,18 +2,29 @@ import { NextResponse } from 'next/server'
 import type { NextFetchEvent, NextRequest } from 'next/server'
 
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
-    //   return new Response('Hello, world!')
-    // const requestOptions = {
-    //     method: 'POST',
-    //     headers: req.headers,
-    //     userAgent: req.headers.get('user-agent')
-    //     // headers: { 'Content-Type': 'application/json' },
-    //     // body: JSON.stringify({ title: 'React POST Request Example' })
-    // };
-    // // console.log(requestOptions)
-    // const href = req.headers.get('referer');
-    // // console.log(href)
-    // const api_url_hits = href + 'api/hits';
-    // fetch(api_url_hits, requestOptions)
+    const { url, headers, method } = req
+
+    // TODO: cleanup creating this URL
+    const href = headers.get('referer');
+    const req_url = new URL(url, `${href}`);
+
+    const hitData = {
+        host: req_url.hostname,
+        port: req_url.port,
+        path: req_url.pathname,
+        params: req_url.search,
+        method: method,
+        userAgent: headers.get("user-agent") || "",
+        protocol: req_url.protocol,
+        date: Date.now()
+    }
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(hitData)
+    };
+    // console.log(hitData)
+    const api_url_hits = href + 'api/hits';
+    fetch(api_url_hits, requestOptions);
     return NextResponse.next();
 }
