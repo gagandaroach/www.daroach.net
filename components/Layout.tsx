@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 import DnetNavbar from './elements/Navbar'
+import DnetFooter from './elements/Footer'
 import styles from '../styles/Layout.module.css'
 
 type Props = {
@@ -14,7 +15,7 @@ const description = "my contribution to the virtual world - a programmar's websi
 
 // footer
 const origYear = 2019;
-const currYear =  new Date().getFullYear();
+const currYear = new Date().getFullYear();
 const webSource = "https://github.com/gagandaroach/www.daroach.net";
 
 const Layout = ({ children, title = 'www.daroach.net' }: Props) => (
@@ -26,16 +27,9 @@ const Layout = ({ children, title = 'www.daroach.net' }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta charSet="utf-8" />
     </Head>
-    <header>
-      <DnetNavbar title={title} />
-    </header>
+    <DnetNavbar title={title} />
     {children}
-    <footer className={styles.footer}>
-      {/* <span>www.daroach.net - running on a high performance webserver in my apartment</span> */}
-      <span>Gagan Daroach &copy; {origYear}-{currYear}</span>
-      <span><a href={webSource} rel="noreferrer" target="_blank">Website Source Code</a></span>
-      {/* <span><a href="mailto:gagandaroach@gmail.com?Subject=www.daroach.net contact me&Body=Hello Gagan, I like daroach.net!" rel="noreferrer" target="_blank">Contact Me (email)</a></span> */}
-    </footer>
+    <DnetFooter />
   </div>
 )
 

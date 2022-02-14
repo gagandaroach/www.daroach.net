@@ -28,22 +28,24 @@ const defaultProps = {
 }
 
 const DnetNavbar = ({ title, links }: Props) => (
-  <nav className={styles.navbar}>
-    <div className={styles.navleft}>
-      {/* <Link href="/" >www.daroach.net</Link> */}
-      {/* <h1>{title.split('|')[0]}</h1> */}
-      <Link href="/" >www.daroach.net</Link>
-    </div>
-    <div className={styles.navright}>
-      {
-        links.map((linkData, idx) => (
-          <Link href={linkData.href} key={idx}>
-            <a>{linkData.name}</a>
-          </Link>          
-        ))
-      }
-    </div>
-  </nav>
+  <header>
+    <nav className={styles.navbar}>
+      <div className={styles.navleft}>
+        {/* <Link href="/" >www.daroach.net</Link> */}
+        {/* <h1>{title.split('|')[0]}</h1> */}
+        <Link href="/" >www.daroach.net</Link>
+      </div>
+      <div className={styles.navright}>
+        {
+          links.map((linkData, idx) => (
+            <Link href={linkData.href} key={idx}>
+              <a>{linkData.name}</a>
+            </Link>
+          ))
+        }
+      </div>
+    </nav>
+  </header>
 )
 
 DnetNavbar.defaultProps = defaultProps;

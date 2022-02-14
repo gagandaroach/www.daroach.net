@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextFetchEvent, NextRequest } from 'next/server'
 
-export function middleware(req: NextRequest, ev: NextFetchEvent) {
+function postHit(req: NextRequest) {
     const { url, headers, method } = req
 
     // TODO: cleanup creating this URL
@@ -26,5 +26,9 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
     // console.log(hitData)
     const api_url_hits = href + 'api/hits';
     fetch(api_url_hits, requestOptions);
+}
+
+export function middleware(req: NextRequest, ev: NextFetchEvent) {
+    postHit(req);
     return NextResponse.next();
 }
