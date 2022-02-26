@@ -6,7 +6,14 @@ function postHit(req: NextRequest) {
 
     // TODO: cleanup creating this URL
     const href = headers.get('referer');
-    const req_url = new URL(url, `${href}`);
+    let req_url = null;
+    try {
+        req_url = new URL(url, `${href}`);
+    } catch (TypeError) {
+        console.log(`invalid urL: ${href}`)
+    }
+    if (req_url == null)
+        return;
 
     const hitData = {
         host: req_url.hostname,
