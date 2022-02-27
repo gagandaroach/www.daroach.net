@@ -4,14 +4,14 @@ import dbConnect from '../../../lib/dbConnect'
 import Hit from '../../../models/Hit'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { url, headers, method } = req
+  const { method, query } = req
 
   await dbConnect()
 
   switch (method) {
     case 'GET':
       try {
-        const hits = await Hit.find() /* find all the data in our database */
+        const hits = await Hit.find(query)
         res.status(200).json({ success: true, data: hits.reverse() })
       } catch (error) {
         res.status(400).json({ success: false })

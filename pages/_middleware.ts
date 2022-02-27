@@ -3,18 +3,12 @@ import type { NextFetchEvent, NextRequest } from 'next/server'
 
 function postHit(req: NextRequest) {
     const { url, headers, method } = req
-
-    // TODO: cleanup creating this URL
-    const href = headers.get('referer');
-    let req_url = null;
-    try {
-        req_url = new URL(url, `${href}`);
-    } catch (TypeError) {
-        console.log(`invalid URL for middleware hit api: ${href}`)
-    }
-    if (req_url == null)
+    const req_url = new URL("", url);
+    if (req_url == null) {
+        console.log(`error in postHit() with url: ${url}`)
         return;
-
+    }
+    // console.log(headers)
     const hitData = {
         host: req_url.hostname,
         port: req_url.port,
@@ -31,7 +25,8 @@ function postHit(req: NextRequest) {
         body: JSON.stringify(hitData)
     };
     // console.log(hitData)
-    const api_url_hits = href + 'api/hits';
+    const api_url_hits = req_url.origin + '/api/hits';
+    // console.log(`sending to: ${api_url_hits}`)
     fetch(api_url_hits, requestOptions);
 }
 

@@ -4,14 +4,14 @@ import dbConnect from '../../../lib/dbConnect'
 import Hit from '../../../models/Hit'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { url, headers, method } = req
+  const { method, query } = req
 
   await dbConnect()
 
   switch (method) {
     case 'GET':
       try {
-        const count = await Hit.countDocuments()
+        const count = await Hit.countDocuments(query)
         res.status(200).json({ success: true, data: count })
       } catch (error) {
         res.status(400).json({ success: false })
