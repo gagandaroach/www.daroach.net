@@ -3,6 +3,7 @@ import styles from '../styles/Page.module.css'
 import Layout from '../components/Layout'
 import DnetBanner from '../components/elements/Banner'
 import ExampleChart from '../components/charts/ExampleChart'
+import PageViews from '../components/charts/PageViews'
 
 
 const HomePage = () => (
@@ -14,6 +15,9 @@ const HomePage = () => (
       <div className={styles.sec}>
         <h1 className={styles.secHeader}>Web traffic</h1>
         {/* < ExampleChart /> */}
+        <div>
+        < PageViews />
+        </div>
         {/* chart - active / online now */}
         {/* chart - visitors per time period - daily, monthly, yearly, YTD */}
         {/* chart - visitors per page  */}
