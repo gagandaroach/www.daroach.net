@@ -12,6 +12,7 @@ const DnetFooter = () => (
         {/* <span>www.daroach.net - running on a high performance webserver in my apartment</span> */}
         <span>Gagan Daroach &copy; {origYear}-{currYear}</span>
         <span><a href={webSource} rel="noreferrer" target="_blank">Website Source Code</a></span>
+        {/* <span>{CurrPageHits()}</span> */}
         {/* <span><a href="mailto:gagandaroach@gmail.com?Subject=www.daroach.net contact me&Body=Hello Gagan, I like daroach.net!" rel="noreferrer" target="_blank">Contact Me (email)</a></span> */}
         {/* <span><a href="mailto:gagandaroach@gmail.com?Subject=www.daroach.net contact me&Body=Hello Gagan, I like daroach.net!" rel="noreferrer" target="_blank">Contact Me (email)</a></span> */}
         <Link href="/contact">Contact</Link>

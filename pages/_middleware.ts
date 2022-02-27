@@ -10,7 +10,7 @@ function postHit(req: NextRequest) {
     try {
         req_url = new URL(url, `${href}`);
     } catch (TypeError) {
-        console.log(`invalid urL: ${href}`)
+        console.log(`invalid URL for middleware hit api: ${href}`)
     }
     if (req_url == null)
         return;
