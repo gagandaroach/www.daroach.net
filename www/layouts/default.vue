@@ -1,10 +1,8 @@
 <!-- https://nuxt.com/docs/getting-started/views#layouts -->
 <template>
-<div class="">
-  <div class="flex flex-col bg-stone-500 min-h-screen min-w-screen">
+  <div class="h-full min-h-screen dnet-bg m-auto">
     <slot />
   </div>
-</div>
 </template>
 
 <script setup>
