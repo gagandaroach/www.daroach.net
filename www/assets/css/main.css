@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dnet-button
+{
+    @apply text-white text-xl;
+}
+
+.dnet-debug-button
+{
+    @extend .dnet-button
+    @apply text-black;
+}
