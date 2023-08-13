@@ -4,11 +4,11 @@
       <h1 class="text-4xl">www.daroach.net</h1>
       <p class="text-base">WIP v2 site</p>
     </div>
-    <div>
-      <h1 class="text-4xl text-white p-10">debug buttons</h1>
-      <div class="flex">
+    <div class="border-2 border-black bg-slate-900 m-auto">
+      <h1 class="text-4xl text-white px-10">debug buttons</h1>
+      <div class="flex space-x-4 p-4">
         <NuxtLink v-for="(b, index) in debug_buttons" :to="b.url" :key="index"
-          class="py-4 px-4 rounded-xl bg-green-600 m-10 hover:bg-green-200"> {{ b.label }} </NuxtLink>
+          class="dnet-button"> {{ b.label }} </NuxtLink>
       </div>
     </div>
   </div>
