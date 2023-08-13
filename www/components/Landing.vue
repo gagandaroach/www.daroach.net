@@ -1,6 +1,6 @@
 <template>
-  <div class="select-none max-w-xs md:max-w-md bg-green-600">
-    <h1 class="pb-2">Welcome to Daroach.net</h1>
+  <div class="select-none max-w-xs md:max-w-md m-auto dnet-card">
+    <h1 class="pb-2 text-4xl text-white">Welcome to Daroach.net</h1>
     <div>
       <!-- <NuxtImage class="object-scale-down" src="/donuts.gif" /> -->
       <nuxt-img src="/donuts.gif" />
