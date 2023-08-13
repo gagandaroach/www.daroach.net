@@ -1,3 +1,6 @@
+nuxt-blog-starter/
+www-content/
+
 node_modules
 *.log*
 .nuxt
