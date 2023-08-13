@@ -2,7 +2,8 @@
   <div class="select-none max-w-xs md:max-w-md bg-green-600">
     <h1 class="pb-2">Welcome to Daroach.net</h1>
     <div>
-      <NuxtImage class="object-scale-down" src="/donuts.gif" />
+      <!-- <NuxtImage class="object-scale-down" src="/donuts.gif" /> -->
+      <nuxt-img src="/donuts.gif" />
       <div class="text-sm text-gray-100 text-right">Gagan Daroach</div>
     </div>
     <div class="text-base my-4 space-y-2 text-white">
