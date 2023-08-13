@@ -16,7 +16,7 @@ export default defineNuxtConfig({
         public: { apiBase: '/api' }
     },
 
-    // 
+
     app: {
         pageTransition:
         {
@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     },
 
     modules: [
+        '@nuxt/content',
         '@pinia/nuxt'
     ]
 
