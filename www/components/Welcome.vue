@@ -3,7 +3,7 @@
     <h1 class="pb-2 text-4xl text-white">Welcome to Daroach.net</h1>
     <div>
       <!-- <NuxtImage class="object-scale-down" src="/donuts.gif" /> -->
-      <nuxt-img src="/donuts.gif" />
+      <nuxt-img src="/media/gagan_daroach_donuts.gif" />
       <div class="text-sm text-gray-100 text-right">Gagan Daroach</div>
     </div>
     <div class="text-base my-4 space-y-2 text-white">
