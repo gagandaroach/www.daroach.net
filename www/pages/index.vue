@@ -25,8 +25,8 @@ const debug_buttons = [
     url: "/blog/about"
   },
   {
-    label: "landing",
-    url: "/landing"
+    label: "welcome",
+    url: "/welcome"
   },
   {
     label: "/",
