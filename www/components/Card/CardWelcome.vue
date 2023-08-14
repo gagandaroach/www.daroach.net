@@ -11,7 +11,7 @@
         You have used the power of the internet to connect to my personal
         website, running on a web server in my apartment.
       </p>
-      <p>Help yourself to some milk and donuts :)</p>
+      <p>Help yourself to some milk and donuts (:</p>
     </div>
     <div class="m-6">
       <NuxtLink to="/" class="dnet-button"> enter daroach.net </NuxtLink>

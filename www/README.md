@@ -2,6 +2,12 @@
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## TODO:
+
+* navbar
+* error page
+* tracking / page counts
+
 ## Setup
 
 Make sure to install the dependencies:

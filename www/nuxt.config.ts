@@ -1,5 +1,3 @@
-import fs from 'fs'
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     postcss: {
@@ -10,6 +8,11 @@ export default defineNuxtConfig({
     },
 
     css: ['~/assets/css/main.css', '~/assets/css/dnet.css'],
+
+    components: [
+        { path: '~/components/Card' , prefix: ''},
+        { path: '~/components' }
+    ],
 
     // https://nuxt.com/docs/getting-started/configuration#environment-variables-and-private-tokens
     runtimeConfig: {

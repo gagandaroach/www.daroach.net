@@ -1,8 +1,9 @@
 <template>
-    <WelcomeCard />
+    <CardWelcome />
 </template>
   
 <script setup>
+
 definePageMeta(
     {
         layout: "fullscreen"
