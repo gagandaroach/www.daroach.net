@@ -1,7 +1,12 @@
 <!-- https://nuxt.com/docs/getting-started/views#layouts -->
 <template>
   <div class="h-full min-h-screen dnet-bg m-auto">
-    <slot />
+    <div class="flex flex-col">
+
+      <DebugButtons /> 
+      <!-- TODO: v-if buttons prod/dev - Gagan 8/13/2023 -->
+      <slot />
+    </div>
   </div>
 </template>
 
