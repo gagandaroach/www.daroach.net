@@ -2,9 +2,12 @@
 <template>
   <div class="h-full min-h-screen dnet-bg m-auto">
     <div class="flex flex-col">
-
-      <DebugButtons /> 
       <NavBar />
+      <DevOnly>
+        <div class="m-10">
+          <DebugButtons /> 
+        </div>
+      </DevOnly>
       <!-- TODO: v-if buttons prod/dev - Gagan 8/13/2023 -->
       <slot />
     </div>
