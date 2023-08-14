@@ -4,6 +4,12 @@
   @apply border-2 border-red-900 hover:border-white;
 }
 
+.dnet-button-nav {
+  @apply text-white uppercase;
+  @apply p-1;
+  @apply hover:text-red-900;
+}
+
 .dnet-fullscreen {
   @apply m-auto p-4;
 }
