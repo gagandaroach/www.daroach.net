@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     css: ['~/assets/css/main.css', '~/assets/css/dnet.css'],
 
     components: [
-        { path: '~/components/Card' , prefix: ''},
+        { path: '~/components/Card', prefix: '' },
         { path: '~/components' }
     ],
 
@@ -30,7 +30,14 @@ export default defineNuxtConfig({
     modules: [
         '@nuxt/image',
         '@nuxt/content',
-        '@pinia/nuxt'
-    ]
+        '@pinia/nuxt',
+        ['@nuxtjs/google-fonts', {
+            families: {
+              Ubuntu: true,
+              'Ubuntu+Condensed': true,
+              'Ubuntu+Mono': true,
+            }
+        }]
+    ],
 
 })
