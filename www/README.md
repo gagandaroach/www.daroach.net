@@ -5,8 +5,13 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 ## TODO:
 
 * navbar
+    * ~~links~~
+    * breadcrumbs
+
+* google fonts
 * error page
 * tracking / page counts
+* about/gagan? gagan/index? about/daroach? figure out about scheme
 
 ## Setup
 
