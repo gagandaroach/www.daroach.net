@@ -4,7 +4,7 @@
     <div class="flex flex-col">
       <NavBar />
       <DevOnly>
-        <div class="m-10">
+        <div>
           <DebugButtons /> 
         </div>
       </DevOnly>

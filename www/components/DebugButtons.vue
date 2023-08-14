@@ -1,8 +1,8 @@
 <template>
-    <div class="m-auto rounded-3xl p-4 border-2 bg-stone-900">
-        <h1 class="text-4xl text-white px-10">debug buttons</h1>
-        <div class="flex space-x-4 p-4">
-            <NuxtLink v-for="(b, index) in debug_buttons" :to="b.url" :key="index" class="dnet-button"> {{ b.label }}
+    <div class="rounded-3xl p-2 border-2 bg-stone-900 m-3">
+        <div class="flex space-x-2 p-2 justify-between">
+            <NuxtLink v-for="(b, index) in debug_buttons" :to="b.url" :key="index" class="dnet-button">
+                {{ b.label }}
             </NuxtLink>
         </div>
     </div>
