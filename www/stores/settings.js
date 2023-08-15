@@ -2,14 +2,14 @@ import { defineStore } from 'pinia'
 
 export const useSettingsStore = defineStore('settingsStore', {
     state: () => ({
-        showWelcome: true,
+        redirectToWelcome: true,
     }),
     getters: {
 
     },
     actions: {
         reset() {
-            this.showWelcome = true;
+            this.redirectToWelcome = true;
         },
     }
 })

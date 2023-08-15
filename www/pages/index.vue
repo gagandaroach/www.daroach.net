@@ -1,13 +1,18 @@
 <template>
-  <div class="flex flex-col">
-    <div class="">
-      <h1 class="text-4xl">www.daroach.net</h1>
-      <p class="text-base">WIP v2 site</p>
-    </div>
+  <div class="flex flex-col space-y-8">
+
     <CardGaganIntro />
-    <div>
-      redirectToWelcome: {{ settings.redirectToWelcome }}
+
+    <h1 class="dnet-section-header">Web Traffic</h1>
+    <div class="dnet-card p-10">
+      x
     </div>
+    
+    <DevOnly>
+      <h1 class="dnet-section-header">Debug Stats</h1>
+      redirectToWelcome: {{ settings.redirectToWelcome }}
+    </DevOnly>
+
   </div>
 </template>
 
@@ -15,3 +20,4 @@
 import { useSettingsStore } from "~/stores/settings";
 const settings = useSettingsStore();
 </script>
+

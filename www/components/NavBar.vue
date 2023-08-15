@@ -1,7 +1,7 @@
 <template>
     <div class="dnet-navbar flex flex-row justify-between">
         <div class="flex flex-col">
-            <NuxtLink to="/">daroach.net</NuxtLink>
+            <NuxtLink to="/" class="dnet-navbar-text-main">daroach.net</NuxtLink>
             <Breadcrumbs />
         </div>
         <div class="flex space-x-1">
