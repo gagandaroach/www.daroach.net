@@ -4,25 +4,25 @@
   </main>
 </template>
 
-<style scoped>
+<style>
 .dnet-blog-content {
   @apply p-4 space-y-2;
 }
 
-h1 {
+.dnet-blog-content h1 {
   font-family: 'Ubuntu Mono';
   @apply text-center;
   @apply text-stone-50 text-xl;
 }
 
-p {
+.dnet-blog-content p {
   font-family: 'Ubuntu';
   @apply text-stone-100;
 }
 
-a {
+.dnet-blog-content a {
   font-family: 'Ubuntu Condensed';
-  @apply text-red-300;
+  @apply text-red-900;
 }
 
 </style>
