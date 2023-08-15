@@ -9,9 +9,14 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
     * breadcrumbs
 
 * google fonts
+    * ~~wire~~
+    * style
+* ~~welcome page redict on index~~
+* ~~settings store~~
 * error page
 * tracking / page counts
 * about/gagan? gagan/index? about/daroach? figure out about scheme
+* https://color-mode.nuxtjs.org/
 
 ## Setup
 
