@@ -8,15 +8,25 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
     * ~~links~~
     * breadcrumbs
 
+* blog
+    * content link
+    * styling
+    * write first post
+    * create list of posts on other pages
+
 * google fonts
     * ~~wire~~
     * style
-* ~~welcome page redict on index~~
-* ~~settings store~~
+
+* index website
+    * tracking / page counts
+
 * error page
-* tracking / page counts
 * about/gagan? gagan/index? about/daroach? figure out about scheme
 * https://color-mode.nuxtjs.org/
+
+* ~~welcome page redict on index~~
+* ~~settings store~~
 
 ## Setup
 

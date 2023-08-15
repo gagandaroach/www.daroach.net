@@ -4,7 +4,7 @@
   </main>
 </template>
 
-<style>
+<style scoped>
 .dnet-blog-content {
   @apply p-4 space-y-2;
 }
