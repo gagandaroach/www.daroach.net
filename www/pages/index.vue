@@ -6,7 +6,7 @@
     </div>
     <CardGaganIntro />
     <div>
-      show welcome: {{ settings.showWelcome }}
+      redirectToWelcome: {{ settings.redirectToWelcome }}
     </div>
   </div>
 </template>

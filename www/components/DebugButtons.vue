@@ -4,11 +4,18 @@
             <NuxtLink v-for="(b, index) in debug_buttons" :to="b.url" :key="index" class="dnet-button">
                 {{ b.label }}
             </NuxtLink>
+            <button class="dnet-button" @click="settings.reset">
+                reset settings
+            </button>
         </div>
     </div>
 </template>
 
 <script setup>
+import { useSettingsStore } from '../stores/settings';
+
+const settings = useSettingsStore();
+
 const debug_buttons = [
     {
         label: "/",
