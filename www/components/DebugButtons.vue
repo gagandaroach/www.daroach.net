@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-3xl p-2 border-2 bg-stone-900 m-3">
+    <div class="p-2 m-3">
         <div class="flex space-x-2 p-2 justify-between">
             <NuxtLink v-for="(b, index) in debug_buttons" :to="b.url" :key="index" class="dnet-button">
                 {{ b.label }}

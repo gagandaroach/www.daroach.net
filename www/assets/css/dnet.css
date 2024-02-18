@@ -22,7 +22,7 @@
 
 .dnet-card-text {
   @apply text-center text-gray-100 select-none;
-  font-family: 'Ubuntu', monospace;
+  font-family: 'Ubuntu Mono', monospace;
 }
 
 .dnet-card {

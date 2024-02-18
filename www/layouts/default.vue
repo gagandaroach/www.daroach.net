@@ -4,7 +4,7 @@
     <div class="flex flex-col">
       <NavBar />
       <DevOnly>
-        <div>
+        <div class="bg-stone-800 border-4 border-green-300">
           <DebugButtons /> 
         </div>
       </DevOnly>
