@@ -10,7 +10,7 @@
       <div class="text-xs text-gray-500 text-right">Gagan Daroach at Metro Market, Milwaukee 2018</div>
     </div>
     <div class="text-base text-white">
-      <p class="text-base text-justify">
+      <p class="dnet-p">
         You have used the power of the internet to connect to a web server in my apartment closet :)
         This website hopes to make the world a better place.
         Help yourself to some milk and donuts and enjoy exploring an expression of my spirit.

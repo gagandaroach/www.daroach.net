@@ -13,8 +13,27 @@
   @apply bg-red-800;
 }
 
+/* Text Elements */
 
+.dnet-title
+{
+  font-family: 'Ubuntu Mono', monospace;
+  @apply text-center text-white text-6xl p-6;
+}
 
+.dnet-h1
+{
+  font-family: 'Ubuntu Mono', monospace;
+  @apply text-center text-white text-4xl p-4;
+}
+
+.dnet-p
+{
+  font-family: 'Ubuntu', monospace;
+  @apply text-justify text-white text-base p-2;
+}
+
+/* Cards */
 
 .dnet-card-color {
   @apply bg-black rounded-xl shadow-2xl;
@@ -31,7 +50,7 @@
   @apply m-auto p-6;
 }
 
-
+/* NavBar Elements */
 
 .dnet-navbar {
   @apply top-0 w-full;
@@ -48,20 +67,4 @@
   @apply text-white uppercase;
   @apply p-1;
   @apply hover:text-red-900;
-}
-
-
-
-
-
-.dnet-footer {
-  @apply fixed bottom-0 w-full;
-}
-
-
-
-
-
-.dnet-section-header {
-  @apply text-xl text-center text-white;
 }

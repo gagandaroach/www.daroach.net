@@ -1,5 +1,5 @@
 <template>
     <div>
-        About index Template
+        <CardGaganIntro />
     </div>
 </template>
