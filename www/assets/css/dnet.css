@@ -10,7 +10,7 @@
 
 .dnet-bg {
   /* @apply bg-gradient-to-b from-green-800 via-blue-900 to-white animate-gradient-y; */
-  @apply bg-emerald-800;
+  @apply bg-red-800;
 }
 
 
