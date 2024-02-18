@@ -7,7 +7,7 @@
     <div class="flex flex-col space-y-2 m-auto">
       <!-- <NuxtImage class="object-scale-down" src="/donuts.gif" /> -->
       <nuxt-img class="mx-auto" src="/media/gagan_daroach_donuts.gif" />
-      <div class="text-xs text-gray-500 text-right">Gagan Daroach at Metro Market, Milwaukee 2017</div>
+      <div class="text-xs text-gray-500 text-right">Gagan Daroach at Metro Market, Milwaukee 2018</div>
     </div>
     <div class="text-base text-white">
       <p class="text-base text-justify">
