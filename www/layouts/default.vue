@@ -11,10 +11,6 @@
       <!-- TODO: v-if buttons prod/dev - Gagan 8/13/2023 -->
       <slot />
     </div>
-    <div class="orb"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
   </div>
 </template>
 
