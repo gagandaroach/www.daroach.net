@@ -7,7 +7,7 @@ export default defineNuxtConfig({
         },
     },
 
-    css: ['~/assets/css/main.css', '~/assets/css/dnet.css'],
+    css: ['~/assets/css/main.css', '~/assets/css/dnet.css', '~/assets/css/dnet-text.css'],
 
     components: [
         { path: '~/components/Card', prefix: '' },
