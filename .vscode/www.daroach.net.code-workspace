@@ -8,7 +8,7 @@
         "version": "0.2.0",
         "configurations": [
             {
-                "name": "Launch via NPM",
+                "name": "Debug Nuxt Server (Dev)",
                 "request": "launch",
                 "runtimeArgs": [
                     "run",
@@ -20,7 +20,15 @@
                 ],
                 "type": "node",
                 "cwd": "${workspaceFolder}/www",
-                "preLaunchTask": "NPM Install"
+                "preLaunchTask": "NPM_Install"
+            },
+            {
+                "name": "Debug Nuxt Website (Dev)",
+                "type": "chrome",
+                "request": "launch",
+                "url": "http://localhost:3000",
+                "webRoot": "${workspaceFolder}"
+                // "preLaunchTask": "NPM_Run_Dev"
             }
         ],
         "compounds": []
@@ -29,15 +37,27 @@
         "version": "2.0.0",
         "tasks": [
             {
-                "label": "NPM Install",
+                "label": "NPM_Install",
                 "command": "npm",
+                "detail": "execute 'npm install' in www/ directory.",
                 "type": "shell",
                 "args": [ "install" ],
                 "problemMatcher": [ "$tsc" ],
                 "presentation": { "reveal": "always" },
                 "group": "build",
                 "options": { "cwd": "${workspaceFolder}/www" }
-            }
+            },
+            // {
+            //     "label": "NPM_Run_Dev",
+            //     "command": "npm",
+            //     "detail": "execute 'npm install' in www/ directory.",
+            //     "type": "shell",
+            //     "args": [ "run", "dev" ],
+            //     "problemMatcher": [ "$tsc" ],
+            //     "presentation": { "reveal": "always" },
+            //     "group": "build",
+            //     "options": { "cwd": "${workspaceFolder}/www" }
+            // }
         ]
     }
 }
