@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useSettingsStore = defineStore('settingsStore', {
     state: () => ({
-        redirectToWelcome: true,
+        bRedirectToWelcome: true,
         _bDebugButtons: true,
     }),
     getters: {
@@ -10,7 +10,7 @@ export const useSettingsStore = defineStore('settingsStore', {
     },
     actions: {
         reset() {
-            this.redirectToWelcome = true;
+            this.bRedirectToWelcome = true;
             this._bDebugButtons = true;
         },
         hideDebugButtons()

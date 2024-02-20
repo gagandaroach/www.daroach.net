@@ -4,7 +4,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
     const settings = useSettingsStore();
 
-    if (to.path === '/' && settings.redirectToWelcome) {
+    if (to.path === '/' && settings.bRedirectToWelcome) {
         return navigateTo('/welcome');
     }
 

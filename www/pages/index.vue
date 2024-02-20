@@ -7,16 +7,22 @@
     </div>
     
 
-    <div class="dnet-card p-10">
+    <div v-if="false" class="dnet-card p-10">
       <h1 class="dnet-h1">Web Traffic</h1>
     </div>
     
     <DevOnly>
       <h1 class="dnet-h1">Debug Stats</h1>
       <p class="dnet-p">
-        settings: {{  }}
-        redirectToWelcome: {{ settings.redirectToWelcome }}
+        _bDebugButtons: {{ settings._bDebugButtons }}
+        <br>
+        bRedirectToWelcome: {{ settings.bRedirectToWelcome }}
+        <br>
+        <!-- settings: {{ settings }} -->
       </p>
+      <button class="dnet-button" @click="settings.reset">
+          reset settings
+      </button>
     </DevOnly>
 
   </div>

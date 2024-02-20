@@ -6,7 +6,7 @@
 import { useSettingsStore } from '../stores/settings';
 
 const settings = useSettingsStore();
-settings.redirectToWelcome = false;
+settings.bRedirectToWelcome = false;
 
 definePageMeta(
     {
