@@ -1,0 +1,40 @@
+/* NavBar Elements */
+
+.dnet-navbar
+{
+  @apply top-0;
+  @apply m-4;
+}
+
+.dnet-navbar-data
+{
+  @apply flex flex-row justify-between;
+  @apply max-w-screen-xl m-auto;
+  @apply text-white;
+  @apply bg-black;
+  @apply rounded-md;
+  @apply border-4 border-red-900;
+  @apply p-4;
+  @apply select-none;
+  font-family: 'Ubuntu Mono', font-mono;
+}
+
+.dnet-navbar-text-main
+{
+  @apply text-xl;
+  @apply hover:text-red-800;
+}
+
+.dnet-nav-buttons
+{
+  @apply flex space-x-1;
+}
+
+.dnet-button-nav
+{
+  @apply text-lg;
+  @apply align-top;
+  @apply text-white uppercase;
+  @apply hover:text-red-800;
+  @apply p-1;
+}

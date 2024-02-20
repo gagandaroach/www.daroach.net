@@ -3,13 +3,12 @@
   <div class="h-full min-h-screen dnet-bg m-auto">
     <div class="flex flex-col">
       <NavBar />
+      <slot />
       <DevOnly>
         <div class="bg-stone-800 border-4 border-green-300">
           <DebugButtons /> 
         </div>
       </DevOnly>
-      <!-- TODO: v-if buttons prod/dev - Gagan 8/13/2023 -->
-      <slot />
     </div>
   </div>
 </template>
