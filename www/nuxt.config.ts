@@ -11,6 +11,7 @@ export default defineNuxtConfig({
         '~/assets/css/main.css',
         '~/assets/css/dnet.css',
         '~/assets/css/dnet-bg.css',
+        '~/assets/css/dnet-blog.css',
         '~/assets/css/dnet-navbar.css',
         '~/assets/css/dnet-text.css'
     ],
@@ -45,5 +46,9 @@ export default defineNuxtConfig({
             }
         }]
     ],
+
+    content: {
+        // documentDriven: true
+    }
 
 })
