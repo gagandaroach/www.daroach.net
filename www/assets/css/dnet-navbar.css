@@ -8,8 +8,8 @@
 
 .dnet-navbar-data
 {
-  @apply flex flex-row justify-between;
   @apply max-w-screen-xl m-auto;
+  @apply flex flex-row justify-between;
   @apply text-white;
   @apply bg-black;
   @apply rounded-md;

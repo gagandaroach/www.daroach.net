@@ -1,7 +1,7 @@
 .dnet-blog-container {
     @apply p-4 m-auto;
     @apply max-w-screen-xl;
-    
+
     @apply bg-black;
     @apply rounded-md;
     @apply border-4 border-red-900;
@@ -14,8 +14,7 @@
     @apply space-y-4;
 }
 
-.dnet-blog-content a
-{
+.dnet-blog-content a {
     @apply text-red-500;
 }
 
@@ -40,5 +39,5 @@
 .dnet-blog-content p {
     @apply font-sans;
     font-family: 'Ubuntu';
-    @apply  text-base text-justify;
+    @apply text-base text-justify;
 }

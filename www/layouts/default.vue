@@ -5,7 +5,7 @@
       <NavBar />
       <slot />
       <DevOnly>
-        <div v-if="settings._bDebugButtons" class="bg-stone-800 border-4 border-green-300">
+        <div v-if="settings._bDebugButtons" class="bg-stone-800 border-4 border-green-300 m-auto">
           <DebugButtons /> 
         </div>
       </DevOnly>

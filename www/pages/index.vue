@@ -1,12 +1,14 @@
 <template>
-  <div class="flex flex-col space-y-8">
-    
-    <h1 class="dnet-title">www.daroach.net</h1>
+  <div class="dnet-page">
 
-    <h1 class="dnet-h1">Web Traffic</h1>
+    <div class="dnet-blog-container">
+      <h1 class="dnet-title">www.daroach.net</h1>
+      
+    </div>
     
+
     <div class="dnet-card p-10">
-      x
+      <h1 class="dnet-h1">Web Traffic</h1>
     </div>
     
     <DevOnly>
@@ -15,7 +17,7 @@
         settings: {{  }}
         redirectToWelcome: {{ settings.redirectToWelcome }}
       </p>
-      </DevOnly>
+    </DevOnly>
 
   </div>
 </template>

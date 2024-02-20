@@ -46,9 +46,13 @@ export default defineNuxtConfig({
             }
         }]
     ],
-
+    
+    // https://content.nuxtjs.org/
     content: {
         // documentDriven: true
+        // experimental: {
+        //     search: true
+        // }
     }
 
 })

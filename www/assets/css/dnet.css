@@ -1,21 +1,28 @@
 .dnet-button {
-  @apply bg-red-900 rounded-lg px-4 py-2;
+  @apply bg-red-900 rounded-md;
+  @apply px-4 py-2;
   @apply text-white uppercase;
   @apply border-2 border-red-900 hover:border-white;
 }
 
-.dnet-fullscreen {
-  @apply m-auto p-4;
+.dnet-page {
+  @apply flex flex-col;
+  @apply max-w-screen-xl;
+  @apply space-y-8 m-auto;
 }
 
 /* Cards */
 
 .dnet-card-color {
-  @apply bg-black rounded-xl shadow-2xl;
+  /* @apply bg-black rounded-xl shadow-2xl; */
+  @apply p-4 m-auto;
+  @apply bg-black;
+  @apply rounded-md;
+  @apply border-4 border-red-900;
 }
 
 .dnet-card-text {
-  @apply text-center text-gray-100 select-none;
+  @apply text-gray-100 select-none;
   @apply font-mono;
   font-family: 'Ubuntu Mono';
 }
