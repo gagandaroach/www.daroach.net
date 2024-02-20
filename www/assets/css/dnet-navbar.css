@@ -16,7 +16,8 @@
   @apply border-4 border-red-900;
   @apply p-4;
   @apply select-none;
-  font-family: 'Ubuntu Mono', font-mono;
+  @apply font-mono;
+  font-family: 'Ubuntu Mono';
 }
 
 .dnet-navbar-text-main

@@ -1,12 +1,11 @@
 <template>
   <div class="select-none max-w-xs md:max-w-md m-auto dnet-card space-y-4">
     <div class="text-white space-y-4">
-      <h1 class="text-3xl">Welcome to daroach.net</h1>
+      <h1 class="text-3xl p-4 uppercase">Welcome to daroach.net</h1>
       <!-- <h1 class="pb-2 text-4xl text-white">www.daroach.net</h1> -->
     </div>
     <div class="flex flex-col space-y-2 m-auto">
-      <!-- <NuxtImage class="object-scale-down" src="/donuts.gif" /> -->
-      <nuxt-img class="mx-auto" src="/media/gagan_daroach_donuts.gif" />
+      <nuxt-img class="mx-auto" src="/media/gagan_daroach_donuts.gif" placeholder />
       <div class="dnet-img-label">Gagan Daroach at Metro Market, Milwaukee 2018</div>
     </div>
     <div class="text-base text-white">
