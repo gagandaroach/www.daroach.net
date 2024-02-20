@@ -7,11 +7,29 @@
   @apply text-center text-white text-6xl p-6;
 }
 
-.dnet-h1
+.dnet-header-base
 {
   @apply font-mono;
   font-family: 'Ubuntu Mono';
-  @apply text-center text-white text-4xl p-4;
+  @apply text-center text-white;
+}
+
+.dnet-h1
+{
+  @apply dnet-header-base;
+  @apply text-4xl p-4;
+}
+
+.dnet-h2
+{
+  @apply dnet-header-base;
+  @apply text-4xl;
+}
+
+.dnet-h2
+{
+  @apply dnet-header-base;
+  @apply text-3xl p-4;
 }
 
 .dnet-p

@@ -9,9 +9,15 @@
       </p>
     </div>
 
-
     <div v-if="false" class="dnet-card p-10">
       <h1 class="dnet-h1">Web Traffic</h1>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <CardGaganIntro />
+      <div class="dnet-card flex w-full h-full">
+        <h1 class="dnet-h2">Blog</h1>
+      </div>
     </div>
 
     <DevOnly>
@@ -34,4 +40,7 @@
 <script setup>
 import { useSettingsStore } from "~/stores/settings";
 const settings = useSettingsStore();
+
+// import { useContent } from '@nuxt/content'
+// const { data: recentPosts } = useContent('blog').limit(3).fetch()
 </script>
