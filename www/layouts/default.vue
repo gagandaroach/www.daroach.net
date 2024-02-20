@@ -5,7 +5,7 @@
       <NavBar />
       <slot />
       <DevOnly>
-        <div class="bg-stone-800 border-4 border-green-300">
+        <div v-if="settings._bDebugButtons" class="bg-stone-800 border-4 border-green-300">
           <DebugButtons /> 
         </div>
       </DevOnly>
@@ -14,7 +14,6 @@
 </template>
 
 <script setup>
-
 const webpageMainTitle = "daroach.net"
 const localTitleChunk = useState('title', () => webpageMainTitle)
 useHead({
@@ -27,6 +26,9 @@ useHead({
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
  ]
 });
+
+import { useSettingsStore } from "~/stores/settings";
+const settings = useSettingsStore();
 </script>
 
 <style>
