@@ -11,17 +11,15 @@
       </div>
       <hr class="my-2" />
       <p>
-        I am an aspiring Software Engineer, hoping to
+        I am a Software Engineer, hoping to
         <a href="https://youtu.be/J-GVd_HLlps?t=32">
           make the world a better place.
         </a>
         I hope to grow daroach.net into a place for people to share stories,
-        knowledge, information, and data. Here you can find information about myself and links to my open source projects.
+        knowledge, information, and data.
+        <br>
+        Here you can find information about myself and links to my open source projects.
       </p>
     </div>
   </div>
 </template>
-
-<script setup></script>
-
-<style></style>

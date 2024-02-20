@@ -8,16 +8,15 @@
       <nuxt-img class="mx-auto" src="/media/gagan_daroach_donuts.gif" placeholder />
       <div class="dnet-img-label">Gagan Daroach at Metro Market, Milwaukee 2018</div>
     </div>
-    <div class="text-base text-white">
+    <div class="text-base text-white text-justify">
       <p class="dnet-p">
-        You have used the power of the internet to connect to a web server in my apartment closet :)
-        This website hopes to make the world a better place.
-        Help yourself to some milk and donuts and enjoy exploring an expression of my spirit.
-        - Gagan
+        You have used the power of the internet to connect to a web server in my California apartment.
+        Here I am growing a place for people to share stories, knowledge, information, and data.
+        &#128513;
       </p>
       <!-- <p>Help yourself to some milk and donuts...</p> -->
     </div>
-    <div class="p-4">
+    <div class="p-4 text-center">
       <NuxtLink to="/" class="dnet-button"> enter daroach.net </NuxtLink>
     </div>
     <!-- <div class="text-base">
