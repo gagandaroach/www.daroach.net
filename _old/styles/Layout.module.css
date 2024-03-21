@@ -1,0 +1,7 @@
+/*! purgecss start ignore */
+.main {
+  @apply container flex flex-col justify-start min-h-screen;
+  @apply m-auto;
+  @apply px-1;
+}
+/*! purgecss end ignore */

@@ -1,0 +1,15 @@
+/*! purgecss start ignore */
+.footer {
+  @apply flex flex-col border-t;
+  @apply space-y-1;
+  @apply py-4;
+  @apply text-sm text-center;
+  @apply select-none;
+  @apply mt-auto mb-0;
+}
+
+.footer a {
+  @apply text-sm;
+  @apply hover:underline;
+}
+/*! purgecss end ignore */
