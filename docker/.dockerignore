@@ -1,0 +1,14 @@
+node_modules/
+.git/
+.gitignore
+.vs/
+Dockerfile.dev
+docker-c*.yml
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
