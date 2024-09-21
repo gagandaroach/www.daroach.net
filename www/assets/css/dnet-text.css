@@ -44,6 +44,19 @@
   @apply font-sans;
   font-family: 'Ubuntu Condensed';
   @apply text-xs;
-  @apply text-gray-500;
+  @apply text-stone-300;
   @apply text-right;
+}
+
+.dnet-card-title
+{
+  font-family: 'Ubuntu Mono';
+  @apply text-3xl uppercase;
+}
+
+.dnet-card-lead
+{
+  font-family: 'Ubuntu';
+  @apply text-base;
+  @apply text-base text-stone-300
 }
