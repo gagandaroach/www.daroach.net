@@ -1,0 +1,22 @@
+/*! purgecss start ignore */
+.navbar {
+  @apply flex flex-row px-4 mx-auto;
+  @apply border-b py-4;
+  @apply text-sm;
+}
+
+.navleft {
+  @apply mr-auto;
+}
+
+.navright {
+  @apply ml-auto;
+  @apply divide-x;
+  @apply divide-gray-500;
+}
+
+.navbar a {
+  @apply hover:underline;
+  @apply px-2;
+}
+/*! purgecss end ignore */

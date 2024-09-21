@@ -1,0 +1,18 @@
+FROM node:18-alpine
+
+RUN mkdir -p /dnet
+WORKDIR /dnet
+
+COPY www/package.json ./
+
+RUN npm install
+
+COPY www /dnet
+
+# RUN chmod 777 /dnet
+
+CMD ["npm", "run", "dev"]
+# CMD ["nuxt", "dev"]
+
+# ENV HOST 0.0.0.0
+# EXPOSE 3000

@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "dnet nuxt",
+			"path": "../../daroachnet/daroach.net"
+		},
+		{
+			"name": "dnet api",
+			"path": "../../daroachnet/api.daroach.net"
+		}
+	],
+	"settings": {
+		"css.lint.unknownAtRules": "ignore"
+	}
+}

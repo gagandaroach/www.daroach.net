@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  dnet_dev_server:
+    build: 
+      context: '.'
+      dockerfile: 'Dockerfile.dev'
+    restart: 'unless-stopped'
+    ports: 
+      - '3000:3000'
+    volumes:
+      - ./components:/dnet/components
+      - ./lib:/dnet/lib
+      - ./models:/dnet/models
+      - ./pages:/dnet/pages
+      - ./public:/dnet/public
+      - ./styles:/dnet/styles
+      - ./next-env.d.ts:/dnet/next-env.d.ts
+      - ./next.config.js:/dnet/next.config.js
+      - ./package-lock.json:/dnet/package-lock.json
+      - ./package.json:/dnet/package.json
+      - ./postcss.config.js:/dnet/postcss.config.js
+      - ./tsconfig.json:/dnet/tsconfig.json
+      - ./.env:/dnet/.env
