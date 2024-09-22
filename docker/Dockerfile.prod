@@ -1,19 +1,23 @@
+# Use the official Node.js image with Alpine for a lightweight container
 FROM node:18-alpine
 
-RUN mkdir -p /dnet
-WORKDIR /dnet
+# Set the working directory inside the container
+WORKDIR /nuxt_app
 
-COPY www/package.json ./
+# Copy package.json and package-lock.json files to the working directory
+COPY www/package.json www/package-lock.json ./
 
+# Install dependencies
 RUN npm install
 
-COPY www /dnet
+# Copy the rest of the application code to the working directory
+COPY www/ .
 
+# Build the application
 RUN npm run build
 
-CMD [ "node", "/dnet/.output/server/index.mjs" ]
+# Expose the port that the app runs on
+EXPOSE 3000
 
-# # RUN chmod 777 /dnet
-
-# CMD ["npm", "run", "dev"]
-# # CMD ["nuxt", "dev"]
+# Start the application
+CMD ["node", ".output/server/index.mjs"]
