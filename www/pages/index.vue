@@ -1,5 +1,18 @@
+<script setup>
+const settingsStore = useSettingsStore();
+const { _bDebugButtons, bRedirectToWelcome, bCookieConsent } = storeToRefs(settingsStore);
+</script>
+
 <template>
   <div class="dnet-page">
+
+    <!-- <div v-if="bWelcomeCard" >
+      <WelcomeVisitor />
+    </div>
+    <div v-else>
+    </div>
+
+    <button @click="settingsStore.toggleWelcomeCard">Toggle Welcome Card</button> -->
 
     <div class="dnet-blog-container">
       <h1 class="dnet-title">www.daroach.net</h1>
@@ -23,24 +36,16 @@
     <DevOnly>
       <h1 class="dnet-h1">Debug Stats</h1>
       <p class="dnet-p">
-        _bDebugButtons: {{ settings._bDebugButtons }}
+        _bDebugButtons: {{ _bDebugButtons }}
         <br>
-        bRedirectToWelcome: {{ settings.bRedirectToWelcome }}
+        bRedirectToWelcome: {{ bRedirectToWelcome }}
         <br>
         <!-- settings: {{ settings }} -->
       </p>
-      <button class="dnet-button" @click="settings.reset">
+      <button class="dnet-button" @click="settingsStore.reset">
         reset settings
       </button>
     </DevOnly>
 
   </div>
 </template>
-
-<script setup>
-import { useSettingsStore } from "~/stores/settings";
-const settings = useSettingsStore();
-
-// import { useContent } from '@nuxt/content'
-// const { data: recentPosts } = useContent('blog').limit(3).fetch()
-</script>
