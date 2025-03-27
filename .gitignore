@@ -9,4 +9,7 @@ node_modules
 .output
 .env
 dist
+
+*.sqlite
+
 google-api-*.txt
