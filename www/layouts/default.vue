@@ -32,9 +32,10 @@ useHead({
 
       <DevOnly>
         <div v-if="_bDebugButtons" class="dnet-debug-buttons bg-stone-800 border-4 border-green-300 m-auto">
-          <DebugButtons />
+          <DbgBar />
         </div>
       </DevOnly>
+
     </div>
     <TheFooter />
   </div>
