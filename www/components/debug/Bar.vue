@@ -10,13 +10,18 @@
             <button class="dnet-button" @click="settings.reset">
                 reset settings
             </button>
+            <button @click="cookieStore.deleteCookieConsent" class="dnet-button dnet-button-accept">
+                Delete Cookie
+            </button>
+
         </div>
     </div>
 </template>
 
 <script setup>
 import { useSettingsStore } from '../../stores/settings';
-
+import { useCookieStore } from '~/stores/cookieStore'
+const cookieStore = useCookieStore()
 const settings = useSettingsStore();
 
 const debug_buttons = [

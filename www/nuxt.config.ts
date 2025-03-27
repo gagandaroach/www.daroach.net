@@ -17,6 +17,7 @@ export default defineNuxtConfig({
 
   components: [
       { path: '~/components/card', prefix: 'Card' },
+      { path: '~/components/cookies', prefix: 'Cookie' },
       { path: '~/components/debug', prefix: 'Dbg' },
       { path: '~/components/global', prefix: '' },
       { path: '~/components' }

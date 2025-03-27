@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useSettingsStore } from '~/stores/settings' // Adjust path if needed
+import { useCookieStore } from '~/stores/cookieStore'
 
+const cookieStore = useCookieStore()
 const settingsStore = useSettingsStore()
 const { _bDebugButtons } = storeToRefs(settingsStore)
+
+// --- Cookies ---
+onMounted(() => { cookieStore.checkConsent() });
 
 // --- Title Management ---
 const webpageMainTitle = 'daroach.net'
