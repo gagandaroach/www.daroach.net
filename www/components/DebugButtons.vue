@@ -36,13 +36,13 @@ const debug_buttons = [
         label: "blog/about",
         url: "/blog/about"
     },
-    {
-        label: "random-error-page",
-        url: "/asdfajsdfka/sdklfja/sdkfjas/kdfj"
-    },
-    {
-        label: "blog-error-page",
-        url: "/blog/sdklfja/sdkfjas/kdfj"
-    },
+    // {
+    //     label: "random-error-page",
+    //     url: "/asdfajsdfka/sdklfja/sdkfjas/kdfj"
+    // },
+    // {
+    //     label: "blog-error-page",
+    //     url: "/blog/sdklfja/sdkfjas/kdfj"
+    // },
 ]
 </script>
