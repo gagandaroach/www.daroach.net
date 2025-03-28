@@ -44,6 +44,8 @@ export default defineNuxtConfig({
             Ubuntu: true,
             'Ubuntu+Condensed': true,
             'Ubuntu+Mono': true,
+            'Fira+Code': true,
+            'Inter': true,
           }
       }]
   ],

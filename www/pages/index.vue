@@ -1,51 +1,33 @@
-<script setup>
-const settingsStore = useSettingsStore();
-const { _bDebugButtons, bRedirectToWelcome, bCookieConsent } = storeToRefs(settingsStore);
+<script setup lang="ts">
+import { useSettingsStore } from '~/stores/settings'
+const settingsStore = useSettingsStore()
 </script>
 
 <template>
-  <div class="dnet-page">
-
-    <!-- <div v-if="bWelcomeCard" >
-      <WelcomeVisitor />
-    </div>
-    <div v-else>
-    </div>
-
-    <button @click="settingsStore.toggleWelcomeCard">Toggle Welcome Card</button> -->
-
-    <div class="dnet-blog-container">
-      <h1 class="dnet-title">www.daroach.net</h1>
-      <p class="dnet-p">
-        a place for people to share stories,
-        knowledge, information, and data.
+  <div class="space-y-12">
+    <header class="text-center">
+      <h1 class="text-4xl md:text-6xl font-display mb-4">www.daroach.net</h1>
+      <p class="text-xl text-secondary/80 max-w-2xl mx-auto">
+        A place for people to share stories, knowledge, information, and data.
       </p>
-    </div>
+    </header>
 
-    <div v-if="false" class="dnet-card p-10">
-      <h1 class="dnet-h1">Web Traffic</h1>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <section class="dnet-grid">
       <CardGaganIntro />
-      <div class="dnet-card flex w-full h-full">
-        <h1 class="dnet-h2">Blog</h1>
+      
+      <div class="dnet-card flex flex-col items-center">
+        <h2 class="text-3xl font-display mb-4">Blog</h2>
+        <NuxtLink to="/blog" class="dnet-button">
+          View Blog
+        </NuxtLink>
       </div>
-    </div>
-
-    <DevOnly>
-      <h1 class="dnet-h1">Debug Stats</h1>
-      <p class="dnet-p">
-        _bDebugButtons: {{ _bDebugButtons }}
-        <br>
-        bRedirectToWelcome: {{ bRedirectToWelcome }}
-        <br>
-        <!-- settings: {{ settings }} -->
-      </p>
-      <button class="dnet-button" @click="settingsStore.reset">
-        reset settings
-      </button>
-    </DevOnly>
-
+      
+      <DevOnly>
+        <section class="dnet-card mt-8">
+          <h2 class="text-xl font-display mb-4">Debug Stats</h2>
+          <button class="dnet-button" @click="settingsStore.reset">Reset Settings</button>
+        </section>
+      </DevOnly>
+    </section>
   </div>
 </template>
