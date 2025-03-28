@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { usePeshtigoTree } from '~/composables/images/PeshtigoTree.ts'
+const { Src, Alt } = usePeshtigoTree()
+</script>
+
 <template>
   <div class="flex max-w-3xl dnet-card">
     <div class="flex flex-col space-y-2">
@@ -6,7 +11,7 @@
       <div class="flex flex-shrink-0 p-5">
         <nuxt-img
           class="object-scale-down h-auto w-auto"
-          src="/media/gagan_daroach_outside_tree_home.jpg"
+          :src="Src" :alt="Alt" loading="lazy" placeholder preload
         />
       </div>
       <hr class="my-2" />
