@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Design Tokens */
+    --color-primary: 153 27 27; /* Red-800 */
+    --color-secondary: 75 85 99; /* Gray-600 */
+    --color-surface: 23 23 23; /* Dark background */
+    --color-error: 239 68 68; /* Error red */
+    --font-display: 'Ubuntu Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+    --font-code: 'Fira Code', monospace;
+    --radius-md: 8px;
+    --ease-emphasized: cubic-bezier(0.4, 0.0, 0.2, 1);
+    --duration-md: 300ms;
+  }
+
+  body {
+    @apply bg-surface text-gray-100 font-body antialiased;
+    background-image: radial-gradient(circle at center, rgb(var(--color-secondary)/0.15) 0%, transparent 100%);
+    accent-color: rgb(var(--color-primary));
+  }
+
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .dnet-card {
+    @apply bg-surface/90 backdrop-blur-lg border border-secondary/30 rounded-lg shadow-lg p-6 transition-all duration-[var(--duration-md)] ease-[var(--ease-emphasized)];
+    
+    &:hover {
+      @apply border-primary/40 shadow-xl transform translate-y-[-2px];
+    }
+  }
+
+  .dnet-button {
+    @apply inline-flex items-center justify-center gap-2 bg-primary/20 hover:bg-primary/40 text-white border border-primary rounded-md px-4 py-2 transition-all duration-[var(--duration-md)] ease-[var(--ease-emphasized)];
+    
+    &:active {
+      @apply scale-95;
+    }
+
+    &[disabled] {
+      @apply opacity-50 pointer-events-none;
+    }
+  }
+}
+
+@layer utilities {
+  @keyframes shiftTiles {
+    from { background-position: 0px 0px; }
+    to { background-position: -1920px -1080px; }
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-surface;
+  }
+}

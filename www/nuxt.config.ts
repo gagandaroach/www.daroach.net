@@ -7,13 +7,7 @@ export default defineNuxtConfig({
       },
   },
 
-  css: [
-      '~/assets/css/main.css',
-      '~/assets/css/dnet.css',
-      '~/assets/css/dnet-bg.css',
-      '~/assets/css/dnet-blog.css',
-      '~/assets/css/dnet-text.css'
-  ],
+  css: ['~/assets/css/main.css'],
 
   components: [
       { path: '~/components/card', prefix: 'Card' },
@@ -32,7 +26,10 @@ export default defineNuxtConfig({
       pageTransition:
       {
           name: 'page', mode: 'out-in'
-      }
+      },
+    meta: [
+      { name: 'theme-color', content: '#991b1b' },
+    ],
   },
 
   modules: [
@@ -49,6 +46,14 @@ export default defineNuxtConfig({
           }
       }]
   ],
+
+  tailwindcss: {
+    cssPath: '~/assets/css/main.css',
+    configPath: 'tailwind.config.js',
+    exposeConfig: false,
+    injectPosition: 0,
+    viewer: true,
+  },
 
   // https://content.nuxtjs.org/
   content: {

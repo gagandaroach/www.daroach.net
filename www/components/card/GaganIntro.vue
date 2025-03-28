@@ -9,12 +9,9 @@ const { Src, Alt } = usePeshtigoTree()
       <h1>Gagandeep Bishamber Daroach</h1>
       <h2>Daroach.net Maintainer and Host</h2>
       <div class="flex flex-shrink-0 p-5">
-        <nuxt-img
-          class="object-scale-down h-auto w-auto"
-          :src="Src" :alt="Alt" loading="lazy" placeholder preload
-        />
+        <nuxt-img class="object-scale-down h-auto w-auto" :src="Src" :alt="Alt" loading="lazy" placeholder preload />
       </div>
-      <hr class="my-2" />
+      <!-- <hr class="my-2" /> -->
       <p>
         I am a Software Engineer, hoping to
         <a href="https://youtu.be/J-GVd_HLlps?t=32">
@@ -25,6 +22,15 @@ const { Src, Alt } = usePeshtigoTree()
         <br>
         Here you can find information about myself and links to my open source projects.
       </p>
+      <!-- <hr class="my-2" /> -->
+      <div class="flex m-auto">
+        <button class="dnet-button m-4">
+          Learn More
+        </button>
+        <button class="dnet-button m-4">
+          Contact
+        </button>
+      </div>
     </div>
   </div>
 </template>

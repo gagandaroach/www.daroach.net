@@ -21,6 +21,25 @@ const settingsStore = useSettingsStore()
           View Blog
         </NuxtLink>
       </div>
+
+      <div class="dnet-card flex flex-col items-center">
+        <h2 class="text-3xl font-display mb-4">Web Traffic</h2>
+        <p>Chart 1: Daroach.net Overall Hits / Map</p>
+        <p>Chart 3: Region Map</p>
+        <p>Chart 2: SubPages</p>
+      </div>
+      
+      <div class="dnet-card flex flex-col items-center">
+        <h2 class="text-3xl font-display mb-4">Hardware Status</h2>
+        <p>CPU Usage</p>
+        <p>GPU Usage</p>
+        <p>Memory</p>
+      </div>
+
+      <div class="dnet-card flex flex-col items-center">
+        <h2 class="text-3xl font-display mb-4">The Wall</h2>
+        <p>First - Gagan Daroach</p>
+      </div>
       
       <DevOnly>
         <section class="dnet-card mt-8">
