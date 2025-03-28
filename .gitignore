@@ -1,15 +1,14 @@
-nuxt-blog-starter/
-www-content/
-
 node_modules
+
 *.log*
+
 .nuxt
 .nitro
 .cache
 .output
 .env
 dist
-
+.data
 *.sqlite
 
-google-api-*.txt
+package-lock.json
