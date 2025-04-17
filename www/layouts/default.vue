@@ -25,13 +25,11 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen dnet-bg">
+  <div class="flex flex-col min-h-screen dnet-bg">
     <TheNavBar />
-    
-    <main class="py-8">
+    <main class="flex-grow py-8">
       <slot />
     </main>
-    
     <TheFooter />
   </div>
 </template>
