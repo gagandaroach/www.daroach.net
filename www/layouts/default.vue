@@ -27,6 +27,7 @@ useHead({
 <template>
   <div class="flex flex-col min-h-screen dnet-bg">
     <TheNavBar />
+    <CookieConsent />
     <main class="flex-grow py-8">
       <slot />
     </main>

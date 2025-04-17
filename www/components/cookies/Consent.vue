@@ -6,10 +6,17 @@ const cookieStore = useCookieStore()
 <template>
   <Transition name="fade">
     <div v-if="cookieStore.isBannerVisible" class="dnet-cookie-banner">
+      <h1>
+        Welcome to daroach.net (=
+      </h1>
       <div class="dnet-cookie-content">
         <p class="dnet-cookie-text">
-          This website uses cookies to enhance your browsing experience. 
-          By continuing to use this site, you agree to our use of cookies.
+          Would you some cookies! No ads or anything, the cookies record website data for fun features. <br>
+          My entire website is open source at
+          <a href="https://github.com/gagandaroach/www.daroach.net" target="_blank" rel="noopener noreferrer">
+            github.com/gagandaroach/www.daroach.net
+          </a>
+          &lt;3
         </p>
         <div class="dnet-cookie-actions">
           <button @click="cookieStore.accept" class="dnet-button dnet-button-accept">Accept</button>
@@ -17,6 +24,11 @@ const cookieStore = useCookieStore()
         </div>
       </div>
     </div>
+    <DevOnly v-else>
+      <div class="dnet-cookie-actions">
+        <button @click="cookieStore.deleteCookieConsent" class="dnet-button dnet-button-accept">Delete Cookie</button>
+      </div>
+    </DevOnly>
   </Transition>
 </template>
 
