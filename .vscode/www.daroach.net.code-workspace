@@ -28,10 +28,46 @@
                 "request": "launch",
                 "url": "http://localhost:3000",
                 "webRoot": "${workspaceFolder}"
-                // "preLaunchTask": "NPM_Run_Dev"
+            },
+            {
+                "name": "Debug Nuxt Server (Prod)",
+                "request": "launch",
+                "runtimeArgs": [
+                    "run",
+                    "start"
+                ],
+                "runtimeExecutable": "npm",
+                "skipFiles": [
+                    "<node_internals>/**"
+                ],
+                "type": "node",
+                "cwd": "${workspaceFolder}/www",
+                "preLaunchTask": "NPM_Build"
+            },
+            {
+                "name": "Debug Nuxt Website (Prod)",
+                "type": "chrome",
+                "request": "launch",
+                "url": "http://localhost:3000",
+                "webRoot": "${workspaceFolder}"
             }
         ],
-        "compounds": []
+        "compounds": [
+            {
+                "name": "Full Stack Debug (Dev)",
+                "configurations": [
+                    "Debug Nuxt Server (Dev)",
+                    "Debug Nuxt Website (Dev)"
+                ]
+            },
+            {
+                "name": "Full Stack Debug (Prod)",
+                "configurations": [
+                    "Debug Nuxt Server (Prod)",
+                    "Debug Nuxt Website (Prod)"
+                ]
+            }
+        ]
     },
     "tasks": {
         "version": "2.0.0",
@@ -39,25 +75,69 @@
             {
                 "label": "NPM_Install",
                 "command": "npm",
-                "detail": "execute 'npm install' in www/ directory.",
+                "detail": "Install dependencies",
                 "type": "shell",
-                "args": [ "install" ],
-                "problemMatcher": [ "$tsc" ],
-                "presentation": { "reveal": "always" },
+                "args": [
+                    "install"
+                ],
+                "problemMatcher": "$tsc",
+                "presentation": {
+                    "reveal": "always"
+                },
                 "group": "build",
-                "options": { "cwd": "${workspaceFolder}/www" }
+                "options": {
+                    "cwd": "${workspaceFolder}/www"
+                }
             },
-            // {
-            //     "label": "NPM_Run_Dev",
-            //     "command": "npm",
-            //     "detail": "execute 'npm install' in www/ directory.",
-            //     "type": "shell",
-            //     "args": [ "run", "dev" ],
-            //     "problemMatcher": [ "$tsc" ],
-            //     "presentation": { "reveal": "always" },
-            //     "group": "build",
-            //     "options": { "cwd": "${workspaceFolder}/www" }
-            // }
+            {
+                "label": "NPM_Run_Dev",
+                "command": "npm",
+                "detail": "Start development server",
+                "type": "shell",
+                "args": [
+                    "run",
+                    "dev"
+                ],
+                "problemMatcher": "$tsc",
+                "presentation": {
+                    "reveal": "always"
+                },
+                "group": "build",
+                "options": {
+                    "cwd": "${workspaceFolder}/www"
+                }
+            },
+            {
+                "label": "NPM_Build",
+                "command": "npm",
+                "detail": "Build for production",
+                "type": "shell",
+                "args": [
+                    "run",
+                    "build"
+                ],
+                "problemMatcher": "$tsc",
+                "presentation": {
+                    "reveal": "always"
+                },
+                "group": "build",
+                "options": {
+                    "cwd": "${workspaceFolder}/www"
+                }
+            }
         ]
+    },
+    "settings": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit"
+        },
+        "typescript.tsdk": "www/node_modules/typescript/lib",
+        "eslint.workingDirectories": [
+            "www"
+        ],
+        "tailwindCSS.includeLanguages": {
+            "vue": "html"
+        }
     }
 }
