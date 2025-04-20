@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDebugStore } from '~/stores'
+import { useDebugStore } from '../stores'
 const debugStore = useDebugStore()
 </script>
 
@@ -30,10 +30,8 @@ const debugStore = useDebugStore()
           </AtomCard>
           
           <AtomCard centered>
-            <AtomHeading :level="2">Hardware Status</AtomHeading>
-            <AtomParagraph>CPU Usage</AtomParagraph>
-            <AtomParagraph>GPU Usage</AtomParagraph>
-            <AtomParagraph>Memory</AtomParagraph>
+            <AtomHeading :level="2">Webserver Status</AtomHeading>
+            <MoleculeHardwareStatus />
           </AtomCard>
 
           <AtomCard centered>

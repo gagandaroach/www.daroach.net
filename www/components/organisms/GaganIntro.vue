@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePeshtigoTree } from '~/composables/images/PeshtigoTree.ts'
+import { usePeshtigoTree } from '../../composables/images/PeshtigoTree'
 const { Src, Alt } = usePeshtigoTree()
 </script>
 
@@ -9,17 +9,13 @@ const { Src, Alt } = usePeshtigoTree()
       <AtomHeading :level="1">Gagandeep Bishamber Daroach</AtomHeading>
       <AtomHeading :level="2">Daroach.net Maintainer and Host</AtomHeading>
       <div class="flex flex-shrink-0 p-5">
-        <nuxt-img 
+        <img 
           class="object-scale-down h-auto w-auto" 
           :src="Src" 
           :alt="Alt" 
-          loading="lazy" 
-          placeholder 
-          preload
+          loading="lazy"
           width="400"
           height="300"
-          sizes="(max-width: 768px) 100vw, 400px"
-          :decoding="'async'"
         />
       </div>
       <AtomParagraph>
