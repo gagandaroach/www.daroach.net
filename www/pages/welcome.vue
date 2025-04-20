@@ -1,5 +1,9 @@
 <template>
-    <MoleculeWelcome />
+  <TemplateBaseLayout>
+    <template #content>
+      <OrganismWelcome />
+    </template>
+  </TemplateBaseLayout>
 </template>
   
 <script setup>

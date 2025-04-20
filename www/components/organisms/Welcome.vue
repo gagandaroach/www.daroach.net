@@ -32,5 +32,5 @@
 </template>
 
 <script setup lang="ts">
-// No additional logic required for this static component
+// Welcome organism component
 </script> 
