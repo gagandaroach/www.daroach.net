@@ -2,7 +2,7 @@
   <TemplateBaseLayoutTemplate>
     <template #header>
       <slot name="header">
-        <TheNavBar />
+        <Navbar />
       </slot>
     </template>
     
@@ -21,7 +21,7 @@
 
     <template #footer>
       <slot name="footer">
-        <TheFooter />
+        <Footer />
       </slot>
     </template>
   </TemplateBaseLayoutTemplate>
@@ -29,6 +29,8 @@
 
 <script setup lang="ts">
 import { onErrorCaptured } from 'vue'
+import Navbar from '~/components/organisms/Navbar.vue'
+import Footer from '~/components/organisms/Footer.vue'
 
 // Enhanced page template with Suspense and default slots
 

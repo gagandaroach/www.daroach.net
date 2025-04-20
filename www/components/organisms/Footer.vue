@@ -9,8 +9,8 @@ const githubUrl = 'https://github.com/daroachnet'
       <p class="text-sm text-secondary/80 font-display">Website Powered by Daroach.net</p>
       <div class="flex space-x-2">
         <button @click="cookieStore.deleteCookieConsent" class="dnet-button">Reset Cookies</button>
-        <a href="{{ githubUrl }}" target="_blank" rel="noopener noreferrer" class="dnet-button">Source Code</a>
+        <a :href="githubUrl" target="_blank" rel="noopener noreferrer" class="dnet-button">Source Code</a>
       </div>
     </div>
   </footer>
-</template>
+</template> 

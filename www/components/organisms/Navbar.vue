@@ -22,4 +22,4 @@ const navButtons = [
       </div>
     </div>
   </nav>
-</template>
+</template> 
