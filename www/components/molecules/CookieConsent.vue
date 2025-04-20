@@ -6,27 +6,25 @@ const cookieStore = useCookieStore()
 <template>
   <Transition name="fade">
     <div v-if="cookieStore.isBannerVisible" class="dnet-cookie-banner">
-      <h1>
-        Welcome to daroach.net (=
-      </h1>
+      <AtomHeading :level="1">Welcome to daroach.net (=</AtomHeading>
       <div class="dnet-cookie-content">
-        <p class="dnet-cookie-text">
+        <AtomParagraph class="dnet-cookie-text">
           Would you some cookies! No ads or anything, the cookies record website data for fun features. <br>
           My entire website is open source at
           <a href="https://github.com/gagandaroach/www.daroach.net" target="_blank" rel="noopener noreferrer">
             github.com/gagandaroach/www.daroach.net
           </a>
           &lt;3
-        </p>
+        </AtomParagraph>
         <div class="dnet-cookie-actions">
-          <button @click="cookieStore.accept" class="dnet-button dnet-button-accept">Accept</button>
-          <button @click="cookieStore.decline" class="dnet-button dnet-button-decline">Decline</button>
+          <MoleculeButton @click="cookieStore.accept" variant="accept">Accept</MoleculeButton>
+          <MoleculeButton @click="cookieStore.decline" variant="decline">Decline</MoleculeButton>
         </div>
       </div>
     </div>
     <DevOnly v-else>
       <div class="dnet-cookie-actions">
-        <button @click="cookieStore.deleteCookieConsent" class="dnet-button dnet-button-accept">Delete Cookie</button>
+        <MoleculeButton @click="cookieStore.deleteCookieConsent" variant="accept">Delete Cookie</MoleculeButton>
       </div>
     </DevOnly>
   </Transition>
@@ -35,7 +33,6 @@ const cookieStore = useCookieStore()
 <style scoped>
 .dnet-cookie-banner {
   @apply bg-black text-white p-4 z-50 m-4;
-  /* @apply fixed bottom-0 left-0 right-0 bg-black text-white p-4 z-50; */
   font-family: 'Ubuntu Mono', monospace;
 }
 
@@ -51,18 +48,6 @@ const cookieStore = useCookieStore()
   @apply flex space-x-2;
 }
 
-.dnet-button {
-  @apply px-4 py-2 text-sm uppercase transition duration-300 ease-in-out;
-}
-
-.dnet-button-accept {
-  @apply bg-red-800 text-white hover:bg-red-600;
-}
-
-.dnet-button-decline {
-  @apply bg-gray-700 text-white hover:bg-gray-600;
-}
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
@@ -72,4 +57,4 @@ const cookieStore = useCookieStore()
 .fade-leave-to {
   opacity: 0;
 }
-</style>
+</style> 

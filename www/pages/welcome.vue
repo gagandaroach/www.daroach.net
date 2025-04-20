@@ -1,5 +1,5 @@
 <template>
-    <CardWelcome />
+    <MoleculeWelcome />
 </template>
   
 <script setup>

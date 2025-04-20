@@ -5,48 +5,46 @@ const settingsStore = useSettingsStore()
 
 <template>
   <div class="space-y-12">
-    <header class="text-center">
-      <h1 class="text-4xl md:text-6xl font-display mb-4">www.daroach.net</h1>
-      <p class="text-xl text-secondary/80 max-w-2xl mx-auto">
+    <MoleculeSectionHeader>
+      <template #title>www.daroach.net</template>
+      <template #subtitle>
         A place for people to share stories, knowledge, information, and data.
-      </p>
-    </header>
+      </template>
+    </MoleculeSectionHeader>
 
-    <section class="dnet-grid">
-      <CardGaganIntro />
+    <MoleculeGrid>
+      <MoleculeGaganIntro />
       
-      <div class="dnet-card flex flex-col items-center">
-        <h2 class="text-3xl font-display mb-4">Blog</h2>
-        <NuxtLink to="/blog" class="dnet-button">
-          View Blog
-        </NuxtLink>
-      </div>
+      <AtomCard centered>
+        <AtomHeading :level="2">Blog</AtomHeading>
+        <MoleculeButton to="/blog">View Blog</MoleculeButton>
+      </AtomCard>
 
-      <div class="dnet-card flex flex-col items-center">
-        <h2 class="text-3xl font-display mb-4">Web Traffic</h2>
-        <p>Chart 1: Daroach.net Overall Hits / Map</p>
-        <p>Chart 3: Region Map</p>
-        <p>Chart 2: SubPages</p>
-      </div>
+      <AtomCard centered>
+        <AtomHeading :level="2">Web Traffic</AtomHeading>
+        <AtomParagraph>Chart 1: Daroach.net Overall Hits / Map</AtomParagraph>
+        <AtomParagraph>Chart 3: Region Map</AtomParagraph>
+        <AtomParagraph>Chart 2: SubPages</AtomParagraph>
+      </AtomCard>
       
-      <div class="dnet-card flex flex-col items-center">
-        <h2 class="text-3xl font-display mb-4">Hardware Status</h2>
-        <p>CPU Usage</p>
-        <p>GPU Usage</p>
-        <p>Memory</p>
-      </div>
+      <AtomCard centered>
+        <AtomHeading :level="2">Hardware Status</AtomHeading>
+        <AtomParagraph>CPU Usage</AtomParagraph>
+        <AtomParagraph>GPU Usage</AtomParagraph>
+        <AtomParagraph>Memory</AtomParagraph>
+      </AtomCard>
 
-      <div class="dnet-card flex flex-col items-center">
-        <h2 class="text-3xl font-display mb-4">The Wall</h2>
-        <p>First - Gagan Daroach</p>
-      </div>
+      <AtomCard centered>
+        <AtomHeading :level="2">The Wall</AtomHeading>
+        <AtomParagraph>First - Gagan Daroach</AtomParagraph>
+      </AtomCard>
       
       <DevOnly>
-        <section class="dnet-card mt-8">
-          <h2 class="text-xl font-display mb-4">Debug Stats</h2>
-          <button class="dnet-button" @click="settingsStore.reset">Reset Settings</button>
-        </section>
+        <AtomCard>
+          <AtomHeading :level="2">Debug Stats</AtomHeading>
+          <MoleculeButton @click="settingsStore.reset">Reset Settings</MoleculeButton>
+        </AtomCard>
       </DevOnly>
-    </section>
+    </MoleculeGrid>
   </div>
 </template>

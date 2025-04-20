@@ -19,22 +19,22 @@ module.exports = {
         error: 'rgb(var(--color-error) / <alpha-value>)'
       },
       fontFamily: {
-        display: ['var(--font-display)', ...defaultTheme.fontFamily.sans],
-        body: ['var(--font-body)', ...defaultTheme.fontFamily.sans],
-        code: ['var(--font-code)', ...defaultTheme.fontFamily.mono]
+        sans: ['var(--font-body)', ...defaultTheme.fontFamily.sans],
+        mono: ['var(--font-code)', ...defaultTheme.fontFamily.mono],
+        display: ['var(--font-display)', ...defaultTheme.fontFamily.sans]
       },
       animation: {
-        tiles: 'shiftTiles 120s linear infinite'
+        'tiles': 'shiftTiles 120s linear infinite'
       },
       keyframes: {
         shiftTiles: {
-          '0%': { backgroundPosition: '0 0, 40px 40px' },
-          '100%': { backgroundPosition: '1920px 1080px, 1960px 1120px' }
+          '0%': { backgroundPosition: '0 0' },
+          '100%': { backgroundPosition: '1920px 1080px' }
         }
       },
       borderRadius: {
+        DEFAULT: 'var(--radius-md)',
         sm: 'var(--radius-sm)',
-        md: 'var(--radius-md)',
         lg: 'var(--radius-lg)'
       },
       transitionTimingFunction: {

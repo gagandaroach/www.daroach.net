@@ -10,9 +10,10 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   components: [
-      { path: '~/components/card', prefix: 'Card' },
-      { path: '~/components/cookies', prefix: 'Cookie' },
-      { path: '~/components/debug', prefix: 'Dbg' },
+      { path: '~/components/atoms', prefix: 'Atom' },
+      { path: '~/components/molecules', prefix: 'Molecule' },
+      { path: '~/components/organisms', prefix: 'Organism' },
+      { path: '~/components/templates', prefix: 'Template' },
       { path: '~/components/global', prefix: '' },
       { path: '~/components' }
   ],

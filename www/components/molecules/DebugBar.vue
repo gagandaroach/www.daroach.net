@@ -1,19 +1,22 @@
 <template>
     <div class="p-2 m-3">
         <div class="flex space-x-2 p-2 justify-between">
-            <button class="dnet-button" @click="settings.hideDebugButtons">
+            <MoleculeButton @click="settings.hideDebugButtons">
                 -hide-
-            </button>
-            <NuxtLink v-for="(b, index) in debug_buttons" :to="b.url" :key="index" class="dnet-button">
+            </MoleculeButton>
+            <MoleculeButton 
+                v-for="(b, index) in debug_buttons" 
+                :to="b.url" 
+                :key="index"
+            >
                 {{ b.label }}
-            </NuxtLink>
-            <button class="dnet-button" @click="settings.reset">
+            </MoleculeButton>
+            <MoleculeButton @click="settings.reset">
                 reset settings
-            </button>
-            <button @click="cookieStore.deleteCookieConsent" class="dnet-button dnet-button-accept">
+            </MoleculeButton>
+            <MoleculeButton @click="cookieStore.deleteCookieConsent" variant="accept">
                 Delete Cookie
-            </button>
-
+            </MoleculeButton>
         </div>
     </div>
 </template>
@@ -41,13 +44,5 @@ const debug_buttons = [
         label: "blog/about",
         url: "/blog/about"
     },
-    // {
-    //     label: "random-error-page",
-    //     url: "/asdfajsdfka/sdklfja/sdkfjas/kdfj"
-    // },
-    // {
-    //     label: "blog-error-page",
-    //     url: "/blog/sdklfja/sdkfjas/kdfj"
-    // },
 ]
-</script>
+</script> 

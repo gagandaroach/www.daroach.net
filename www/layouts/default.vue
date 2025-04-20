@@ -27,7 +27,10 @@ useHead({
 <template>
   <div class="flex flex-col min-h-screen dnet-bg">
     <TheNavBar />
-    <CookieConsent />
+    <MoleculeCookieConsent />
+    <DevOnly>
+      <MoleculeDebugBar v-if="_bDebugButtons" />
+    </DevOnly>
     <main class="flex-grow py-8">
       <slot />
     </main>
