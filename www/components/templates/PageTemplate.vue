@@ -28,5 +28,14 @@
 </template>
 
 <script setup lang="ts">
+import { onErrorCaptured } from 'vue'
+
 // Enhanced page template with Suspense and default slots
+
+// Error handling for async operations
+onErrorCaptured((error) => {
+  console.error('Error in page template:', error)
+  // You could emit this error to a global error handler
+  return false // Prevent the error from propagating further
+})
 </script> 
