@@ -1,26 +1,33 @@
-// stores/cookieStore.ts
 import { defineStore } from 'pinia'
 
-enum CookieConsent {
+export enum CookieConsent {
   ACCEPTED = 'accepted',
   DECLINED = 'declined'
+}
+
+interface CookieState {
+  consentGiven: CookieConsent | null
+  isBannerVisible: boolean
 }
 
 const CONSENT_COOKIE_KEY = 'cookieConsent'
 const TIMESTAMP_KEY = 'cookieConsentTimestamp'
 
 export const useCookieStore = defineStore('cookie', {
-  state: () => ({
-    consentGiven: null as CookieConsent | null,
+  state: (): CookieState => ({
+    consentGiven: null,
     isBannerVisible: true
   }),
+
   actions: {
     accept() {
       this.setConsent(CookieConsent.ACCEPTED)
     },
+
     decline() {
       this.setConsent(CookieConsent.DECLINED)
     },
+
     deleteCookieConsent() {
       this.consentGiven = null
       this.isBannerVisible = true
@@ -30,6 +37,7 @@ export const useCookieStore = defineStore('cookie', {
         localStorage.removeItem(TIMESTAMP_KEY)
       }
     },
+
     setConsent(status: CookieConsent) {
       this.consentGiven = status
       this.isBannerVisible = false
@@ -39,6 +47,7 @@ export const useCookieStore = defineStore('cookie', {
         localStorage.setItem(TIMESTAMP_KEY, new Date().toISOString())
       }
     },
+
     checkConsent() {
       if (typeof window !== 'undefined') {
         const storedConsent = localStorage.getItem(CONSENT_COOKIE_KEY)
@@ -51,12 +60,14 @@ export const useCookieStore = defineStore('cookie', {
       }
     }
   },
+
   getters: {
     hasConsent: (state) => state.consentGiven === CookieConsent.ACCEPTED,
+    
     consentTimestamp(): Date | null {
       if (typeof window === 'undefined') return null
       const timestamp = localStorage.getItem(TIMESTAMP_KEY)
       return timestamp ? new Date(timestamp) : null
     }
   }
-})
+}) 

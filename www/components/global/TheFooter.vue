@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useCookieStore } from '~/stores/cookieStore'
+import { useCookieStore } from '~/stores'
 const cookieStore = useCookieStore()
 const githubUrl = 'https://github.com/daroachnet'
 </script>

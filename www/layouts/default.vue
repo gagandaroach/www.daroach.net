@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useSettingsStore } from '~/stores/settings'
-import { useCookieStore } from '~/stores/cookieStore'
+import { useCookieStore, useUIStore, useDebugStore } from '~/stores'
 
 const cookieStore = useCookieStore()
-const settingsStore = useSettingsStore()
-const { _bDebugButtons } = storeToRefs(settingsStore)
+const uiStore = useUIStore()
+const debugStore = useDebugStore()
+const { showDebugButtons } = storeToRefs(debugStore)
+const { showCookieConsent } = storeToRefs(uiStore)
 
 // --- Cookies ---
 onMounted(() => { cookieStore.checkConsent() })
@@ -27,9 +28,9 @@ useHead({
 <template>
   <div class="flex flex-col min-h-screen dnet-bg">
     <TheNavBar />
-    <MoleculeCookieConsent />
+    <MoleculeCookieConsent v-if="showCookieConsent" />
     <DevOnly>
-      <MoleculeDebugBar v-if="_bDebugButtons" />
+      <MoleculeDebugBar v-if="showDebugButtons" />
     </DevOnly>
     <main class="flex-grow py-8">
       <slot />

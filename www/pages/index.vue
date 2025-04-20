@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useSettingsStore } from '~/stores/settings'
-const settingsStore = useSettingsStore()
+import { useDebugStore } from '~/stores'
+const debugStore = useDebugStore()
 </script>
 
 <template>
@@ -42,7 +42,7 @@ const settingsStore = useSettingsStore()
       <DevOnly>
         <AtomCard>
           <AtomHeading :level="2">Debug Stats</AtomHeading>
-          <MoleculeButton @click="settingsStore.reset">Reset Settings</MoleculeButton>
+          <MoleculeButton @click="debugStore.reset">Reset Settings</MoleculeButton>
         </AtomCard>
       </DevOnly>
     </MoleculeGrid>
