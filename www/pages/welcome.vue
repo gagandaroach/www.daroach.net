@@ -1,9 +1,7 @@
 <template>
-  <TemplateBaseLayout>
-    <template #content>
-      <OrganismWelcome />
-    </template>
-  </TemplateBaseLayout>
+  <TemplateFullscreenTemplate>
+    <OrganismWelcome />
+  </TemplateFullscreenTemplate>
 </template>
   
 <script setup>
@@ -17,10 +15,4 @@ const welcomeStore = useWelcomeStore()
 onMounted(() => {
     welcomeStore.disableRedirect()
 })
-
-definePageMeta(
-    {
-        layout: "fullscreen"
-    }
-);
 </script>

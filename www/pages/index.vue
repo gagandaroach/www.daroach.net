@@ -4,7 +4,7 @@ const debugStore = useDebugStore()
 </script>
 
 <template>
-  <TemplateBaseLayout>
+  <TemplateBaseLayoutTemplate>
     <template #content>
       <div class="space-y-12">
         <MoleculeSectionHeader>
@@ -50,5 +50,5 @@ const debugStore = useDebugStore()
         </TemplateCardGrid>
       </div>
     </template>
-  </TemplateBaseLayout>
+  </TemplateBaseLayoutTemplate>
 </template>

@@ -26,15 +26,13 @@ useHead({
 </script>
 
 <template>
-  <div class="flex flex-col min-h-screen dnet-bg">
-    <TheNavBar />
-    <MoleculeCookieConsent v-if="showCookieConsent" />
-    <DevOnly>
-      <MoleculeDebugBar v-if="showDebugButtons" />
-    </DevOnly>
-    <main class="flex-grow py-8">
+  <TemplatePageTemplate>
+    <template #content>
+      <OrganismCookieConsent v-if="showCookieConsent" />
+      <DevOnly>
+        <MoleculeDebugBar v-if="showDebugButtons" />
+      </DevOnly>
       <slot />
-    </main>
-    <TheFooter />
-  </div>
+    </template>
+  </TemplatePageTemplate>
 </template>
