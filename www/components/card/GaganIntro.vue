@@ -14,7 +14,7 @@ const { Src, Alt } = usePeshtigoTree()
       <!-- <hr class="my-2" /> -->
       <p>
         I am a Software Engineer, hoping to
-        <a href="https://youtu.be/J-GVd_HLlps?t=32">
+        <a href="https://youtu.be/J-GVd_HLlps?t=32" target="_blank" rel="noopener noreferrer">
           make the world a better place.
         </a>
         I hope to grow daroach.net into a place for people to share stories,

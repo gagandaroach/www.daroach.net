@@ -24,29 +24,41 @@ export const useCookieStore = defineStore('cookie', {
     deleteCookieConsent() {
       this.consentGiven = null
       this.isBannerVisible = true
-      
+
       if (typeof window !== 'undefined') {
-        localStorage.removeItem(CONSENT_COOKIE_KEY)
-        localStorage.removeItem(TIMESTAMP_KEY)
+        try {
+          localStorage.removeItem(CONSENT_COOKIE_KEY)
+          localStorage.removeItem(TIMESTAMP_KEY)
+        } catch (error) {
+          console.warn('Failed to delete cookie consent from localStorage:', error)
+        }
       }
     },
     setConsent(status: CookieConsent) {
       this.consentGiven = status
       this.isBannerVisible = false
-      
+
       if (typeof window !== 'undefined') {
-        localStorage.setItem(CONSENT_COOKIE_KEY, status)
-        localStorage.setItem(TIMESTAMP_KEY, new Date().toISOString())
+        try {
+          localStorage.setItem(CONSENT_COOKIE_KEY, status)
+          localStorage.setItem(TIMESTAMP_KEY, new Date().toISOString())
+        } catch (error) {
+          console.warn('Failed to save cookie consent to localStorage:', error)
+        }
       }
     },
     checkConsent() {
       if (typeof window !== 'undefined') {
-        const storedConsent = localStorage.getItem(CONSENT_COOKIE_KEY)
-        const isValidConsent = Object.values(CookieConsent).includes(storedConsent as CookieConsent)
+        try {
+          const storedConsent = localStorage.getItem(CONSENT_COOKIE_KEY)
+          const isValidConsent = Object.values(CookieConsent).includes(storedConsent as CookieConsent)
 
-        if (storedConsent && isValidConsent) {
-          this.consentGiven = storedConsent as CookieConsent
-          this.isBannerVisible = false
+          if (storedConsent && isValidConsent) {
+            this.consentGiven = storedConsent as CookieConsent
+            this.isBannerVisible = false
+          }
+        } catch (error) {
+          console.warn('Failed to read cookie consent from localStorage:', error)
         }
       }
     }
@@ -55,8 +67,13 @@ export const useCookieStore = defineStore('cookie', {
     hasConsent: (state) => state.consentGiven === CookieConsent.ACCEPTED,
     consentTimestamp(): Date | null {
       if (typeof window === 'undefined') return null
-      const timestamp = localStorage.getItem(TIMESTAMP_KEY)
-      return timestamp ? new Date(timestamp) : null
+      try {
+        const timestamp = localStorage.getItem(TIMESTAMP_KEY)
+        return timestamp ? new Date(timestamp) : null
+      } catch (error) {
+        console.warn('Failed to read cookie timestamp from localStorage:', error)
+        return null
+      }
     }
   }
 })
