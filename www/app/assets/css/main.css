@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Dark mode wired to @nuxtjs/color-mode's `.dark` class (class strategy).
+   v1 is dark-first: the @theme defaults below ARE the dark palette, so the
+   site renders dark with no class. The `dark:` variant is reserved for the
+   future light theme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── dnet design tokens (single source of truth) ─────────────────────────
+   Ported from the legacy dev branch (assets/css/main.css). Each token both
+   defines a CSS variable AND generates Tailwind utilities (bg-primary, etc.).
+   Components reference SEMANTIC names (bg-primary), never raw palette. */
+@theme {
+  --color-primary: #991b1b;   /* Red-800 — the dnet brand color */
+  --color-secondary: #4b5563; /* Gray-600 */
+  --color-surface: #171717;   /* near-black background */
+  --color-error: #ef4444;
+
+  --font-display: "Ubuntu Mono", monospace; /* headings/wordmark */
+  --font-body: "Inter", sans-serif;          /* body copy */
+  --font-code: "Fira Code", monospace;       /* code */
+
+  --radius-md: 0.5rem;
+  --ease-emphasized: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-md: 300ms;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-gray-100 font-body antialiased;
+    background-image: radial-gradient(
+      circle at center,
+      color-mix(in oklab, var(--color-secondary) 15%, transparent) 0%,
+      transparent 100%
+    );
+    accent-color: var(--color-primary);
+  }
+
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  /* Animated tile background for the hero (Phase 1). */
+  @keyframes shiftTiles {
+    from { background-position: 0 0; }
+    to { background-position: -1920px -1080px; }
+  }
+}
