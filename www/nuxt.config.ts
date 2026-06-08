@@ -56,12 +56,16 @@ export default defineNuxtConfig({
   site: {
     url: 'https://www.daroach.net',
     name: 'daroach.net',
+    description: 'Gagan Daroach — CPU/GPU engineer, founder, homelab tinkerer.',
+    defaultLocale: 'en',
   },
-  // OG image generation needs a native renderer (@takumi-rs/core). Deferred to
-  // Phase 6 (SEO + social cards); disabled now to keep the Phase 0 build clean.
-  ogImage: { enabled: false },
-  // Schema.org JSON-LD needs full site/identity config (Phase 6). Disabled now;
-  // sitemap, robots, and SEO meta from @nuxtjs/seo stay active.
+  // Schema.org JSON-LD: STILL DISABLED — upstream bug. nuxt-schema-org 6.1.2 /
+  // @unhead/schema-org crashes at prerender with "Cannot read properties of
+  // undefined (reading 'potentialAction')" in webSiteResolver, regardless of
+  // config identity OR explicit definePerson/defineWebSite/defineWebPage seeding
+  // in app.vue (the WebSite node arrives undefined to its resolver). This is
+  // pure prod-facing SEO JSON-LD (invisible to users), so it's deferred to the
+  // prod-SEO pass — revisit after a nuxt-schema-org bump. og-image IS enabled.
   schemaOrg: { enabled: false },
 
   runtimeConfig: {

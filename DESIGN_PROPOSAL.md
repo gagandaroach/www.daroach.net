@@ -499,7 +499,20 @@ Deploy model: **Cloudflare Tunnel → Traefik → Ingress (host-based) → Servi
 > **Deferred / skipped (still optional, not blocking v1):** the 3D globe (per §0.1) and the `HardwareStatus` homelab card — the latter needs real homelab metrics (a server feed), so it's left out rather than faked; revisit if/when a metrics endpoint exists.
 > **Stat caveat surfaced in UI:** `uniqueVisitors24h` uses the daily-rotated hash, so it's labeled "unique (daily-rotated hash)"; summing distinct hashes across days would overcount, so cross-day "unique visitors" is intentionally not shown.
 
-**Phase 6 — Deploy.** Update Dockerfile/chart for `app/` + Tailwind v4 + analytics PVC + secrets (§6). `./chart/install.sh`, verify on k3s behind the tunnel. **Resolve the Phase 0 deferrals:** rebuild `sharp` for the container arch (deferral #3); re-enable + configure OG images (#1) and schema.org (#2); SEO meta/sitemap/robots final pass.
+**Phase 6 — Deploy. 🚧 IN PROGRESS — scoped by Gagan 2026-06-08 to SEO/sharp only for now; deploy + chart + branch cleanup held for his review.**
+
+Gagan's directions (2026-06-08): *(1)* do **only the SEO/sharp deferrals** now; *(2)* **test locally** for now — the move to the `blackhole` host is later, and he wants a clean **dev regime** + a separate **prod launch regime** that **he** runs on that host; *(3)* the analytics **PVC uses the default storageClass** (when the chart is built); *(4)* **collate all branches into `_old/`** — strip assets, summarize each branch's theme, re-port assets later — **after he reviews more of the code** (held, not done).
+
+**Done this pass (commit `__PHASE6A_COMMIT__`):**
+- **OG images ✅ re-enabled.** Installed the takumi renderer (`@takumi-rs/core` + `@takumi-rs/helpers`; native linux-x64 prebuild). Added a branded `app/components/OgImage/Default.takumi.vue` (1200×600, dnet dark + red glow, inline styles — the og renderers don't run our Tailwind/@theme) and wired it site-wide via `defineOgImageComponent('Default')` in `app.vue`. Verified: `og:image` meta emits `/_og/s/c_Default.png`, prerenders to a valid PNG (200, image/png). NB v6 requires the renderer suffix on the component filename (`.takumi.vue`).
+- **sharp ✅ resolved for the local regime.** Every build reports "sharp binaries included for linux-x64" (this dev box). The container-arch rebuild remains a **prod-regime** task (below).
+- `site` config fleshed out (description, defaultLocale). `npm run build` green (11 prerendered routes — incl. the OG images).
+
+**Still deferred:**
+- **schema.org ⚠️ STILL DISABLED — upstream bug.** `nuxt-schema-org` 6.1.2 / `@unhead/schema-org` crashes at prerender: `Cannot read properties of undefined (reading 'potentialAction')` in `webSiteResolver`, *regardless of* config `identity` OR explicit `definePerson`/`defineWebSite`/`defineWebPage` seeding in `app.vue` (the WebSite node arrives `undefined` to its resolver). It's prod-facing JSON-LD only (invisible to users), so it's parked behind `schemaOrg: { enabled: false }` until a `nuxt-schema-org` bump; revisit in the prod-SEO pass.
+- **Prod launch regime (Gagan runs it):** update `docker/Dockerfile.prod` + `chart/` for the `app/` layout + Tailwind v4 (no `tailwind.config.js`); rebuild **sharp** + **better-sqlite3** + **@takumi-rs/core** for the container arch (multi-stage already installs python3/make/g++); add the **analytics PVC** (default storageClass, mount → `NUXT_ANALYTICS_DB_PATH`); wire secrets (`NUXT_IP_HASH_SALT`, retention). Then Traefik `forwardedHeaders.trustedIPs` = CF CIDRs + the CF visitor-location Managed Transform (real-IP e2e, deferred from Phase 4). **Do NOT run `./chart/install.sh` without Gagan's go-ahead.**
+- **Branch collation into `_old/`** — held until Gagan reviews the code, then on his go.
+- Timeline real blurbs + photos (non-blocking, §9.3).
 
 Each phase should end on `main` only after a green `nuxt build`. Keep deployment infra changes isolated and reviewable.
 
