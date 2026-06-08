@@ -503,7 +503,7 @@ Deploy model: **Cloudflare Tunnel → Traefik → Ingress (host-based) → Servi
 
 Gagan's directions (2026-06-08): *(1)* do **only the SEO/sharp deferrals** now; *(2)* **test locally** for now — the move to the `blackhole` host is later, and he wants a clean **dev regime** + a separate **prod launch regime** that **he** runs on that host; *(3)* the analytics **PVC uses the default storageClass** (when the chart is built); *(4)* **collate all branches into `_old/`** — strip assets, summarize each branch's theme, re-port assets later — **after he reviews more of the code** (held, not done).
 
-**Done this pass (commit `__PHASE6A_COMMIT__`):**
+**Done this pass (commit `89991da`):**
 - **OG images ✅ re-enabled.** Installed the takumi renderer (`@takumi-rs/core` + `@takumi-rs/helpers`; native linux-x64 prebuild). Added a branded `app/components/OgImage/Default.takumi.vue` (1200×600, dnet dark + red glow, inline styles — the og renderers don't run our Tailwind/@theme) and wired it site-wide via `defineOgImageComponent('Default')` in `app.vue`. Verified: `og:image` meta emits `/_og/s/c_Default.png`, prerenders to a valid PNG (200, image/png). NB v6 requires the renderer suffix on the component filename (`.takumi.vue`).
 - **sharp ✅ resolved for the local regime.** Every build reports "sharp binaries included for linux-x64" (this dev box). The container-arch rebuild remains a **prod-regime** task (below).
 - `site` config fleshed out (description, defaultLocale). `npm run build` green (11 prerendered routes — incl. the OG images).
