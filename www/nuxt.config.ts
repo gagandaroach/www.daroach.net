@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
     '@nuxtjs/seo',
+    '@pinia/nuxt', // dashboard store only (§3) — added in Phase 5 per the plan
   ],
 
   css: ['~/assets/css/main.css'],
@@ -86,6 +87,7 @@ export default defineNuxtConfig({
     '/timeline': { prerender: true },
     '/blog': { isr: 3600 },
     '/blog/**': { isr: true },
+    '/dashboard': { ssr: false }, // client-only SPA; reads live SQLite, keeps data out of prerendered HTML (§5.6)
     '/api/**': { cors: true },
   },
 })
