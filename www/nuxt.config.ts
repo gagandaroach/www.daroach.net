@@ -17,6 +17,18 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  // @nuxt/content v3: Shiki syntax highlighting tuned to the dnet dark palette.
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'github-dark',
+          langs: ['ts', 'js', 'vue', 'bash', 'json', 'yaml', 'sql', 'python', 'html', 'css'],
+        },
+      },
+    },
+  },
+
   // Tailwind v4 via the official Vite plugin (NOT @nuxtjs/tailwindcss).
   vite: {
     plugins: [tailwindcss()],
@@ -67,5 +79,8 @@ export default defineNuxtConfig({
   // API dynamic. (Routes filled in across later phases.)
   routeRules: {
     '/': { prerender: true },
+    '/about': { prerender: true },
+    '/blog': { isr: 3600 },
+    '/blog/**': { isr: true },
   },
 })

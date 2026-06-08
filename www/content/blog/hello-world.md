@@ -6,8 +6,6 @@ tags: [meta]
 draft: false
 ---
 
-# Hello, world
-
 This is a placeholder post so the `blog` content collection has something to
 render. Replace it with real writing — `@nuxt/content` v3 collections are
 defined in `content.config.ts`, and posts live in `content/blog/*.md`.

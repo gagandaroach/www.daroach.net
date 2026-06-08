@@ -5,16 +5,16 @@
 // banner. This composable only records whether the user has dismissed the
 // transparency notice, and exposes a reset used by the footer.
 //
-// State lives in localStorage via @vueuse's useStorage (no Pinia — Pinia is
-// reserved for the dashboard per §0/§3). The notice UI itself lands in Phase 2;
-// Phase 1 only needs `reset()` for the footer control.
+// State lives in localStorage via @vueuse's useLocalStorage (no Pinia — Pinia
+// is reserved for the dashboard per §0/§3). NB: @vueuse/nuxt auto-imports
+// useLocalStorage/useSessionStorage but NOT the bare useStorage.
 export type ConsentChoice = 'acknowledged' | 'declined'
 
 const STORAGE_KEY = 'dnet-consent'
 
 export function useConsent() {
   // null = the notice has not been dismissed yet.
-  const consent = useStorage<ConsentChoice | null>(STORAGE_KEY, null)
+  const consent = useLocalStorage<ConsentChoice | null>(STORAGE_KEY, null)
 
   const decided = computed(() => consent.value !== null)
 
