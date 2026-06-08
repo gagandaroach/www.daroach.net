@@ -452,7 +452,14 @@ Deploy model: **Cloudflare Tunnel → Traefik → Ingress (host-based) → Servi
 
 ## 7. Phased execution plan (for the follow-up agent)
 
-**Phase 0 — Reset the slate.** New Nuxt 4 app under `www/app/`, Tailwind v4 via `@tailwindcss/vite`, modules wired (§3). Port design tokens (§4). Archive `_old/`. Smoke-test `npm run dev` + `npm run build` (both `main` and `dev` currently fail to build — getting a clean build is the Phase-0 exit criterion).
+**Phase 0 — Reset the slate. ✅ DONE (2026-06-08, commit `533867a` on `dev-2026`).** Fresh Nuxt 4.4.7 / Vue 3.5.35 / Vite 7 app under `www/app/`; Tailwind v4 via `@tailwindcss/vite` (no `tailwind.config.js`); dnet tokens ported to CSS-first `@theme` + `@custom-variant dark` wired; modules wired (content v3 w/ blog+timeline collections, image, fonts (self-hosting confirmed), color-mode dark-first, vueuse, seo). `npm run build` is green and prerenders `/`. Placeholder hero at `app/pages/index.vue` (Phase 1 replaces it).
+
+> **⚠️ Phase 0 deferrals — must be picked up in Phase 6:**
+> 1. **OG images disabled** (`ogImage: { enabled: false }` in `nuxt.config.ts`). `@nuxtjs/seo`→`nuxt-og-image` needs a native renderer (`@takumi-rs/core`) or a custom `OgImage/*.satori.vue` component. Install/configure + re-enable in Phase 6.
+> 2. **Schema.org JSON-LD disabled** (`schemaOrg: { enabled: false }`). Errored at prerender (`potentialAction` undefined) without full site/identity config. Configure identity + re-enable in Phase 6.
+> 3. **`sharp` arch mismatch.** `@nuxt/image` bundled `sharp` for `darwin-arm64` (dev Mac). The k3s deploy is **linux** — the Phase 6 Docker build must install/rebuild `sharp` for the container's arch (linux-arm64 or linux-x64), or images break at runtime.
+> 4. **`_old/` not yet archived** — still in the working tree (open question §9.2).
+> 5. **Pinia not installed** — deferred to Phase 5 (dashboard) per the "Pinia only when global state is real" decision; `@pinia/nuxt` + `pinia` get added then.
 
 **Phase 1 — Shell & brand.** `layouts/default` + `fullscreen`, NavBar, Footer (with consent-reset), `useTheme()` + color-mode toggle (light/dark working, no flash). Port `.dnet-card`/`.dnet-button`. Fullscreen landing `/` (§5.1).
 
@@ -464,7 +471,7 @@ Deploy model: **Cloudflare Tunnel → Traefik → Ingress (host-based) → Servi
 
 **Phase 5 — Dashboard.** `/api/stats` + `/api/geo`, `/dashboard` (ssr:false), ECharts world choropleth + visitor stats cards; optional globe.gl 3D view; reuse `HardwareStatus.vue` for the homelab card (§5.6).
 
-**Phase 6 — Deploy.** Update Dockerfile/chart for `app/` + Tailwind v4 + analytics PVC + secrets (§6). `./chart/install.sh`, verify on k3s behind the tunnel. SEO module + OG images.
+**Phase 6 — Deploy.** Update Dockerfile/chart for `app/` + Tailwind v4 + analytics PVC + secrets (§6). `./chart/install.sh`, verify on k3s behind the tunnel. **Resolve the Phase 0 deferrals:** rebuild `sharp` for the container arch (deferral #3); re-enable + configure OG images (#1) and schema.org (#2); SEO meta/sitemap/robots final pass.
 
 Each phase should end on `main` only after a green `nuxt build`. Keep deployment infra changes isolated and reviewable.
 
