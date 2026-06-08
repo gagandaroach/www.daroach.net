@@ -64,7 +64,10 @@ export default defineNuxtConfig({
   schemaOrg: { enabled: false },
 
   runtimeConfig: {
-    ipHashSalt: '', // set via NUXT_IP_HASH_SALT in prod (analytics, Phase 4)
+    // Analytics (§5.2). All server-only — never exposed to the client bundle.
+    ipHashSalt: '', // NUXT_IP_HASH_SALT — rotate; HMAC key for visitor hashing
+    analyticsDbPath: './.data/analytics.sqlite3', // NUXT_ANALYTICS_DB_PATH — PVC mount in prod (Phase 6)
+    analyticsRetentionDays: '90', // NUXT_ANALYTICS_RETENTION_DAYS — rows aged out past this
     public: { apiBase: '/api' },
   },
 
@@ -83,5 +86,6 @@ export default defineNuxtConfig({
     '/timeline': { prerender: true },
     '/blog': { isr: 3600 },
     '/blog/**': { isr: true },
+    '/api/**': { cors: true },
   },
 })
