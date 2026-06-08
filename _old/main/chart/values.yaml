@@ -1,0 +1,28 @@
+image:
+  repository: wwwdnet-prod
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicas: 1
+
+service:
+  port: 80
+  targetPort: 3000
+
+ingress:
+  enabled: true
+  className: traefik
+  entrypoint: web
+  hosts:
+    - daroach.net
+    - www.daroach.net
+
+nodeSelector:
+  kubernetes.io/hostname: blackhole.daroach.lan
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 128Mi
+  limits:
+    memory: 512Mi

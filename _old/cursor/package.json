@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "systeminformation": "^5.25.11"
+  },
+  "devDependencies": {
+    "@types/systeminformation": "^3.23.1"
+  }
+}

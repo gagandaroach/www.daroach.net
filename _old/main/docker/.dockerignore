@@ -1,0 +1,13 @@
+node_modules
+.output
+.nuxt
+.git
+.gitignore
+docs
+README.md
+LICENSE
+.vscode
+npm-debug.log
+coverage
+.env
+.editorconfig

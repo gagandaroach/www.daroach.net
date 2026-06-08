@@ -1,0 +1,20 @@
+FROM node:22-alpine AS build
+
+RUN apk add --no-cache python3 make g++
+
+WORKDIR /nuxt_app
+
+COPY www/package.json ./
+RUN npm install && npm install better-sqlite3
+
+COPY www/ .
+RUN npm run build
+
+
+FROM node:22-alpine
+
+WORKDIR /nuxt_app
+COPY --from=build /nuxt_app/.output ./.output
+
+EXPOSE 3000
+CMD ["node", ".output/server/index.mjs"]

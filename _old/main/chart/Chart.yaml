@@ -1,0 +1,6 @@
+apiVersion: v2
+name: www-daroach-net
+description: Nuxt 3 personal site, served behind Traefik + Cloudflare Tunnel
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

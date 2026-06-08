@@ -1,0 +1,116 @@
+diff --git a/www/components/card/GaganIntro.vue b/www/components/card/GaganIntro.vue
+index 5798e0e..2d69af6 100644
+--- a/www/components/card/GaganIntro.vue
++++ b/www/components/card/GaganIntro.vue
+@@ -14,7 +14,7 @@ const { Src, Alt } = usePeshtigoTree()
+       <!-- <hr class="my-2" /> -->
+       <p>
+         I am a Software Engineer, hoping to
+-        <a href="https://youtu.be/J-GVd_HLlps?t=32">
++        <a href="https://youtu.be/J-GVd_HLlps?t=32" target="_blank" rel="noopener noreferrer">
+           make the world a better place.
+         </a>
+         I hope to grow daroach.net into a place for people to share stories,
+diff --git a/www/components/global/TheFooter.vue b/www/components/global/TheFooter.vue
+index 1add34e..09b54ac 100644
+--- a/www/components/global/TheFooter.vue
++++ b/www/components/global/TheFooter.vue
+@@ -9,7 +9,7 @@ const githubUrl = 'https://github.com/daroachnet'
+       <p class="text-sm text-secondary/80 font-display">Website Powered by Daroach.net</p>
+       <div class="flex space-x-2">
+         <button @click="cookieStore.deleteCookieConsent" class="dnet-button">Reset Cookies</button>
+-        <a href="{{ githubUrl }}" target="_blank" rel="noopener noreferrer" class="dnet-button">Source Code</a>
++        <a :href="githubUrl" target="_blank" rel="noopener noreferrer" class="dnet-button">Source Code</a>
+       </div>
+     </div>
+   </footer>
+diff --git a/www/composables/images/PeshtigoTree.ts b/www/composables/images/PeshtigoTree.ts
+index cf7cddb..be87f00 100644
+--- a/www/composables/images/PeshtigoTree.ts
++++ b/www/composables/images/PeshtigoTree.ts
+@@ -1,9 +1,7 @@
+-import { ref } from 'vue'
+-
+ export function usePeshtigoTree() {
+-    const Src = ref('/media/gagan_daroach_outside_tree_home.jpg')
+-    const Alt = ref('Gagan Daroach outside home')
++    const Src = '/media/gagan_daroach_outside_tree_home.jpg'
++    const Alt = 'Gagan Daroach outside home'
+     return {
+         Src, Alt
+     }
+-};
++}
+diff --git a/www/stores/cookieStore.ts b/www/stores/cookieStore.ts
+index c4bba69..3e55ed3 100644
+--- a/www/stores/cookieStore.ts
++++ b/www/stores/cookieStore.ts
+@@ -24,29 +24,41 @@ export const useCookieStore = defineStore('cookie', {
+     deleteCookieConsent() {
+       this.consentGiven = null
+       this.isBannerVisible = true
+-      
++
+       if (typeof window !== 'undefined') {
+-        localStorage.removeItem(CONSENT_COOKIE_KEY)
+-        localStorage.removeItem(TIMESTAMP_KEY)
++        try {
++          localStorage.removeItem(CONSENT_COOKIE_KEY)
++          localStorage.removeItem(TIMESTAMP_KEY)
++        } catch (error) {
++          console.warn('Failed to delete cookie consent from localStorage:', error)
++        }
+       }
+     },
+     setConsent(status: CookieConsent) {
+       this.consentGiven = status
+       this.isBannerVisible = false
+-      
++
+       if (typeof window !== 'undefined') {
+-        localStorage.setItem(CONSENT_COOKIE_KEY, status)
+-        localStorage.setItem(TIMESTAMP_KEY, new Date().toISOString())
++        try {
++          localStorage.setItem(CONSENT_COOKIE_KEY, status)
++          localStorage.setItem(TIMESTAMP_KEY, new Date().toISOString())
++        } catch (error) {
++          console.warn('Failed to save cookie consent to localStorage:', error)
++        }
+       }
+     },
+     checkConsent() {
+       if (typeof window !== 'undefined') {
+-        const storedConsent = localStorage.getItem(CONSENT_COOKIE_KEY)
+-        const isValidConsent = Object.values(CookieConsent).includes(storedConsent as CookieConsent)
++        try {
++          const storedConsent = localStorage.getItem(CONSENT_COOKIE_KEY)
++          const isValidConsent = Object.values(CookieConsent).includes(storedConsent as CookieConsent)
+ 
+-        if (storedConsent && isValidConsent) {
+-          this.consentGiven = storedConsent as CookieConsent
+-          this.isBannerVisible = false
++          if (storedConsent && isValidConsent) {
++            this.consentGiven = storedConsent as CookieConsent
++            this.isBannerVisible = false
++          }
++        } catch (error) {
++          console.warn('Failed to read cookie consent from localStorage:', error)
+         }
+       }
+     }
+@@ -55,8 +67,13 @@ export const useCookieStore = defineStore('cookie', {
+     hasConsent: (state) => state.consentGiven === CookieConsent.ACCEPTED,
+     consentTimestamp(): Date | null {
+       if (typeof window === 'undefined') return null
+-      const timestamp = localStorage.getItem(TIMESTAMP_KEY)
+-      return timestamp ? new Date(timestamp) : null
++      try {
++        const timestamp = localStorage.getItem(TIMESTAMP_KEY)
++        return timestamp ? new Date(timestamp) : null
++      } catch (error) {
++        console.warn('Failed to read cookie timestamp from localStorage:', error)
++        return null
++      }
+     }
+   }
+ })

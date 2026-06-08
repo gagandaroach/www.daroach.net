@@ -1,0 +1,46 @@
+# Build stage
+FROM node:18-alpine as builder
+
+# Set the working directory inside the container
+WORKDIR /nuxt_app
+
+# Copy package.json and package-lock.json files to the working directory
+COPY www/package.json www/package-lock.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code to the working directory
+COPY www/ .
+
+# Build the application
+RUN npm run build
+
+# Production stage
+FROM node:18-alpine
+
+# Create a non-root user
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+# Set the working directory inside the container
+WORKDIR /nuxt_app
+
+# Copy built assets from builder stage
+COPY --from=builder /nuxt_app/.output /nuxt_app/.output
+COPY --from=builder /nuxt_app/package.json /nuxt_app/package-lock.json ./
+
+# Install production dependencies only
+RUN npm install --production
+
+# Switch to non-root user
+USER appuser
+
+# Expose the port that the app runs on
+EXPOSE 3000
+
+# Healthcheck configuration
+HEALTHCHECK --interval=30s --timeout=3s \
+    CMD curl -f http://localhost:3000/ || exit 1
+
+# Start the application
+CMD ["node", ".output/server/index.mjs"]
