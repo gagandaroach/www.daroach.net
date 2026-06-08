@@ -80,6 +80,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true },
     '/about': { prerender: true },
+    '/timeline': { prerender: true },
     '/blog': { isr: 3600 },
     '/blog/**': { isr: true },
   },

@@ -477,7 +477,12 @@ Deploy model: **Cloudflare Tunnel → Traefik → Ingress (host-based) → Servi
 > - Sample-post markdown must NOT repeat the frontmatter `title` as a leading `# H1` (the post page already renders the title) — removed from both stubs to avoid a duplicate heading.
 > - The SEO link-checker flags `/timeline` + `/dashboard` as 404s during prerender — **expected** (built in Phases 3 & 5); non-fatal, build stays green.
 
-**Phase 3 — Timeline.** Wire the `timeline` collection (stub `.yml` files already in `www/content/timeline/`) + `Timeline.vue`/`TimelineEntry.vue` (§5.3). Renders fully against the 6 stub entries; `TimelineEntry` shows a placeholder where photos are missing. Real blurbs/photos drop in later with no code change.
+**Phase 3 — Timeline. ✅ DONE (2026-06-08, commit `__PHASE3_COMMIT__` on `dev-2026`).** `pages/timeline.vue` queries `queryCollection('timeline').order('order','DESC')` and renders against the 6 stub `.yml` entries (newest first; Dekho 2026 → Born 1995). `components/timeline/Timeline.vue` (`<Timeline>` — adjacent dup segment deduped) is the vertical rail: single column on mobile (rail left), alternating sides on desktop, red node per entry. `components/timeline/Entry.vue` (`<TimelineEntry>`) is a `<UiCard interactive>` with year/title/blurb/tags and a clean "photo coming soon" placeholder for missing images. `/timeline` prerendered. `npm run build` green (8 routes).
+
+> **New decisions/deferrals (Phase 3):**
+> - **Missing-photo detection via `onMounted` + `naturalWidth`, not just `@error`.** The img 404 fires during initial HTML parse — *before* Vue hydrates and attaches `@error` — so the event is missed and the broken-image alt text shows. `Entry.vue` re-checks `el.complete && el.naturalWidth === 0` on mount (plus `@error` for late failures) to swap in the placeholder reliably. This is the general pattern for any "fallback on broken image" in an SSR/hydrated app.
+> - **Plain `<img>`, not `<NuxtImg>`, for timeline photos** — IPX would try to optimize the not-yet-added files at prerender and fail. The bare tag defers the 404 to the browser, where the placeholder logic catches it.
+> - Blurbs render verbatim (still `STUB — …`); dropping the 6 photos into `www/public/timeline/` + replacing blurbs needs no code change (non-blocking, §9.3).
 
 **Phase 4 — Analytics backend.** `server/utils/db.ts` (SQLite + migrations + PVC), `server/api/hit.post.ts`, IP resolution + HMAC + retention (§5.2). `useAnalytics()` beacon. Verify real IP end-to-end through Traefik/Cloudflare.
 
