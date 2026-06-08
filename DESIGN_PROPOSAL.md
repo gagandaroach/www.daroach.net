@@ -35,6 +35,7 @@ These four were locked in by Gagan after the first draft — they override anyth
 | Analytics approach | **Roll-your-own** Nitro + better-sqlite3 | Confirms §5.2 as written; do not pull in GoatCounter/Umami |
 | World map | **Flat ECharts choropleth for v1**; 3D globe deferred | Phase 5 builds only the `vue-echarts` country map; skip globe.gl (no Three.js bundle in v1) |
 | `@nuxt/ui` | **Not adopted** — hand-built light atomic set | Confirms §5.4; full control of the dnet brand |
+| Landing flow | **`/` IS the hero homepage** — no welcome gate/redirect | Drop the old `showWelcome` middleware; real content at `/` (§5.1) |
 
 ---
 
@@ -111,7 +112,7 @@ www/
     layouts/
       default.vue               # navbar + slot + footer
       fullscreen.vue            # bare, for the landing page
-    middleware/                 # (welcome redirect, if kept)
+    middleware/                 # (none required at launch — no welcome gate)
     pages/
       index.vue                 # fullscreen landing
       about.vue
@@ -219,9 +220,10 @@ Port `dev:www/assets/css/main.css` into v4's CSS-first model. The tokens stay id
 ## 5. Feature designs
 
 ### 5.1 Fullscreen landing page
-- **Route:** `/` using `layouts/fullscreen.vue` (no navbar chrome). `routeRules: { '/': { prerender: true } }`.
-- **Prior art:** `dev:www/components/card/Welcome.vue` and `cursor:www/components/organisms/Welcome.vue` (centered card + GIF + "Enter daroach.net" CTA). The old `showWelcome.global.ts` middleware gated a welcome→home redirect (disabled 2025-03-27).
-- **Design:** full-viewport hero — animated background (the `shiftTiles` keyframe already exists), wordmark, one-line identity, and entry CTAs into Timeline / Blog / Dashboard. Decide with Gagan whether `/` *is* the landing or redirects into content (see §9).
+- **Decision (confirmed 2026-06-08):** `/` **IS the homepage** — a single full-screen hero. **No welcome gate, no redirect.** The old `showWelcome.global.ts` welcome→home middleware (disabled 2025-03-27) is **NOT carried forward** — drop the welcome page/middleware concept entirely.
+- **Route:** `/` using `layouts/fullscreen.vue` (no navbar chrome on the hero itself). `routeRules: { '/': { prerender: true } }`.
+- **Design:** full-viewport hero — animated background (the `shiftTiles` keyframe is worth porting), wordmark "GAGAN DAROACH", a one-line identity ("distinguished cpu/gpu engineer"), and primary nav CTAs straight into **Timeline / Blog / Dashboard**. One screen; visitors click into a section. Best for SEO + link sharing (real content at `/`, no gate).
+- **Prior art (visual reference only):** `dev:www/components/card/Welcome.vue` (centered card + GIF) — reuse the *look/animation* ideas, not the redirect flow.
 
 ### 5.2 Analytics — page visits + source IP (cookieless, self-hosted)
 **Architecture:** client beacon → Nitro `/api/hit` → `better-sqlite3`. Dashboard reads `/api/stats` + `/api/geo`.
@@ -486,14 +488,13 @@ Each phase should end on `main` only after a green `nuxt build`. Keep deployment
 
 **Resolved 2026-06-08** (see §0.1): dark-only v1 · roll-your-own analytics · flat ECharts map (no globe) · no `@nuxt/ui`.
 
-**Resolved:** ✅ Timeline structure + 6 entries stubbed at `www/content/timeline/` (blurbs/photos pending but non-blocking).
+**Resolved:** ✅ Timeline structure + 6 entries stubbed at `www/content/timeline/` (blurbs/photos pending but non-blocking). ✅ Landing flow — `/` is the hero homepage, no welcome gate (§5.1).
 
 **Still open:**
 
-1. **Landing behavior** — is `/` a standalone fullscreen hero with CTAs into content, or does it redirect into the timeline/blog like the old welcome flow?
-2. **Domains/infra** — any change from the `main` chart (hosts `daroach.net` + `www.daroach.net`, node `blackhole.daroach.lan`)? Can I provision a PVC for the analytics DB?
-3. **`_old/` + stale branches** — OK to archive `_old/` and prune `nuxt3`/`main-bk*`/`post-cassie` after salvaging, or keep them?
-4. **Timeline finish (non-blocking)** — replace the 6 `STUB` blurbs and add 6 photos to `www/public/timeline/`.
+1. **Domains/infra** — any change from the `main` chart (hosts `daroach.net` + `www.daroach.net`, node `blackhole.daroach.lan`)? Can I provision a PVC for the analytics DB?
+2. **`_old/` + stale branches** — OK to archive `_old/` and prune `nuxt3`/`main-bk*`/`post-cassie` after salvaging, or keep them?
+3. **Timeline finish (non-blocking)** — replace the 6 `STUB` blurbs and add 6 photos to `www/public/timeline/`.
 
 ---
 
