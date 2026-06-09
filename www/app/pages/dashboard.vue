@@ -40,24 +40,7 @@ useSeoMeta({
       <div class="lg:col-span-2">
         <DashboardWorldMap :data="geo" />
       </div>
-      <UiCard padding="none" class="overflow-hidden">
-        <div class="border-b border-secondary/20 px-5 py-3">
-          <h2 class="font-display text-lg">Top pages</h2>
-        </div>
-        <ul class="divide-y divide-secondary/10">
-          <li
-            v-for="p in stats?.topPaths ?? []"
-            :key="p.path"
-            class="flex items-center justify-between gap-3 px-5 py-2.5"
-          >
-            <span class="truncate font-code text-sm text-gray-300">{{ p.path }}</span>
-            <span class="font-code text-sm text-primary">{{ p.count }}</span>
-          </li>
-          <li v-if="!stats?.topPaths?.length" class="px-5 py-4 font-code text-sm text-gray-500">
-            No data yet.
-          </li>
-        </ul>
-      </UiCard>
+      <DashboardTopPaths :paths="stats?.topPaths ?? []" />
     </div>
 
     <!-- traffic over time -->

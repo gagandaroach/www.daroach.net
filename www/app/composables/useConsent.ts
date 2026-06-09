@@ -8,7 +8,11 @@
 // State lives in localStorage via @vueuse's useLocalStorage (no Pinia — Pinia
 // is reserved for the dashboard per §0/§3). NB: @vueuse/nuxt auto-imports
 // useLocalStorage/useSessionStorage but NOT the bare useStorage.
-export type ConsentChoice = 'acknowledged' | 'declined'
+//
+// Only "acknowledged" exists: the analytics are consent-exempt and fire
+// regardless, so a "decline" choice would carry no behavioural meaning — the
+// notice is purely informational. The footer's reset re-shows it.
+export type ConsentChoice = 'acknowledged'
 
 const STORAGE_KEY = 'dnet-consent'
 
@@ -22,13 +26,9 @@ export function useConsent() {
     consent.value = 'acknowledged'
   }
 
-  function decline() {
-    consent.value = 'declined'
-  }
-
   function reset() {
     consent.value = null
   }
 
-  return { consent, decided, acknowledge, decline, reset }
+  return { consent, decided, acknowledge, reset }
 }

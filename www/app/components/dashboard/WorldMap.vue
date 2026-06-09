@@ -111,10 +111,7 @@ const option = computed(() => ({
 </script>
 
 <template>
-  <UiCard padding="none" class="overflow-hidden">
-    <div class="border-b border-secondary/20 px-5 py-3">
-      <h2 class="font-display text-lg">Where visitors are</h2>
-    </div>
+  <DashboardPanel title="Where visitors are">
     <div style="height: 440px" class="w-full">
       <ClientOnly>
         <VChart v-if="ready" :option="option" autoresize style="height: 100%; width: 100%" />
@@ -128,5 +125,5 @@ const option = computed(() => ({
         </template>
       </ClientOnly>
     </div>
-  </UiCard>
+  </DashboardPanel>
 </template>

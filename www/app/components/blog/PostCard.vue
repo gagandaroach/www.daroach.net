@@ -23,11 +23,7 @@ const { post } = defineProps<{ post: Post }>()
         {{ post.description }}
       </p>
       <div v-if="post.tags?.length" class="mt-3 flex flex-wrap gap-2">
-        <span
-          v-for="tag in post.tags"
-          :key="tag"
-          class="rounded bg-primary/10 px-2 py-0.5 font-code text-xs text-primary"
-        >#{{ tag }}</span>
+        <UiBadge v-for="tag in post.tags" :key="tag">#{{ tag }}</UiBadge>
       </div>
     </NuxtLink>
   </UiCard>

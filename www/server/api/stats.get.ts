@@ -1,5 +1,9 @@
 // GET /api/stats — aggregate visitor stats for the dashboard (§5.6).
 //
+// Deliberately NOT wrapped in try/catch (unlike the write path in hit.post.ts):
+// a read failure SHOULD surface as a 500 so the dashboard store can show a real
+// "couldn't load" state, rather than silently rendering an empty dashboard.
+//
 // NB on "unique visitors": visitor_hash is rotated daily (§5.2), so a distinct
 // count within a single day is a true unique-visitor count, but summed across
 // days it's really "unique visitor-days". The dashboard labels the 24h figure

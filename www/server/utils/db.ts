@@ -55,16 +55,21 @@ export interface HitRecord {
   path: string
   referrer?: string | null
   country?: string | null
+  // `region` is reserved for an optional GeoLite2 city/region lookup (§5.2);
+  // it's currently always null (CF only gives us country) — intentional headroom.
   region?: string | null
   ua?: string | null
   visitorHash?: string | null
 }
 
-const insertStmt = () =>
-  getDb().prepare(
+// Prepared once, lazily (the DB must exist first), then reused for every insert.
+let _insertStmt: ReturnType<Database.Database['prepare']> | null = null
+function insertStmt() {
+  return (_insertStmt ??= getDb().prepare(
     `INSERT INTO hits (ts, path, referrer, country, region, ua, visitor_hash)
      VALUES (@ts, @path, @referrer, @country, @region, @ua, @visitorHash)`,
-  )
+  ))
+}
 
 export function insertHit(rec: HitRecord): void {
   insertStmt().run({

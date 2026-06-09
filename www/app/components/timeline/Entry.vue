@@ -63,11 +63,7 @@ onMounted(() => {
       <h3 class="mt-1 font-display text-lg text-gray-100">{{ entry.title }}</h3>
       <p class="mt-2 text-sm leading-relaxed text-gray-400">{{ entry.blurb }}</p>
       <div v-if="entry.tags?.length" class="mt-3 flex flex-wrap gap-2">
-        <span
-          v-for="tag in entry.tags"
-          :key="tag"
-          class="rounded bg-primary/10 px-2 py-0.5 font-code text-xs text-primary"
-        >#{{ tag }}</span>
+        <UiBadge v-for="tag in entry.tags" :key="tag">#{{ tag }}</UiBadge>
       </div>
     </div>
   </UiCard>

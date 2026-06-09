@@ -28,11 +28,7 @@ useSeoMeta({
       <h1 class="mt-2 font-display text-4xl tracking-tight">{{ post.title }}</h1>
       <p v-if="post.description" class="mt-3 font-body text-lg text-gray-400">{{ post.description }}</p>
       <div v-if="post.tags?.length" class="mt-4 flex flex-wrap gap-2">
-        <span
-          v-for="tag in post.tags"
-          :key="tag"
-          class="rounded bg-primary/10 px-2 py-0.5 font-code text-xs text-primary"
-        >#{{ tag }}</span>
+        <UiBadge v-for="tag in post.tags" :key="tag">#{{ tag }}</UiBadge>
       </div>
     </header>
 
